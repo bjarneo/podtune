@@ -1,408 +1,859 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T19:20:00Z",
+  "generatedAt": "2026-10-08T12:00:00Z",
   "title": "Design System: Podtune",
   "extensions": {
     "colorMeta": {
-      "dark-background": { "role": "neutral", "displayName": "Dark window" },
-      "dark-surface": { "role": "neutral", "displayName": "Dark tonal surface" },
-      "dark-foreground": { "role": "neutral", "displayName": "Dark main text" },
-      "dark-secondary": { "role": "neutral", "displayName": "Dark supporting text" },
-      "dark-border": { "role": "neutral", "displayName": "Dark divider" },
-      "dark-accent": { "role": "primary", "displayName": "Muted gold" },
-      "light-background": { "role": "neutral", "displayName": "Light window" },
-      "light-surface": { "role": "neutral", "displayName": "Light tonal surface" },
-      "light-foreground": { "role": "neutral", "displayName": "Light main text" },
-      "light-secondary": { "role": "neutral", "displayName": "Light supporting text" },
-      "light-border": { "role": "neutral", "displayName": "Light divider" },
-      "light-accent": { "role": "primary", "displayName": "Dark gold" },
-      "omarchy-observed-background": { "role": "neutral", "displayName": "Observed Omarchy window" },
-      "omarchy-observed-surface": { "role": "neutral", "displayName": "Observed Omarchy tonal surface" },
-      "omarchy-observed-foreground": { "role": "neutral", "displayName": "Observed Omarchy main text" },
-      "omarchy-observed-secondary": { "role": "neutral", "displayName": "Observed Omarchy supporting text" },
-      "omarchy-observed-border": { "role": "neutral", "displayName": "Observed Omarchy divider" },
-      "omarchy-observed-accent": { "role": "primary", "displayName": "Observed Omarchy green" },
-      "accent-ink-dark": { "role": "neutral", "displayName": "Dark accent ink" },
-      "accent-ink-light": { "role": "neutral", "displayName": "Light accent ink" },
-      "signal-high-dark": { "role": "signal", "displayName": "Dark high-signal warning" },
-      "signal-high-light": { "role": "signal", "displayName": "Light high-signal warning" },
-      "error-border-dark": { "role": "error", "displayName": "Dark error outline" },
-      "error-border-light": { "role": "error", "displayName": "Light error outline" },
-      "icon-background": { "role": "neutral", "displayName": "Fixed icon background" },
-      "transparent": { "role": "neutral", "displayName": "Transparent preset fill" }
-    },
-    "typographyMeta": {
-      "title-window": { "displayName": "Window title", "purpose": "The Podtune title." },
-      "title-section": { "displayName": "Section title", "purpose": "Column titles and hardware group headings." },
-      "value-peak": { "displayName": "Peak readout", "purpose": "The live peak value." },
-      "body": { "displayName": "Body", "purpose": "The window default, native buttons, preset field, and help text." },
-      "label-strong": { "displayName": "Strong label", "purpose": "Preset names and the record button." },
-      "label-control": { "displayName": "Control label", "purpose": "Identity, control labels, switches, guidance, errors, and take names." },
-      "label-secondary": { "displayName": "Supporting label", "purpose": "Values, descriptions, peak labels, RMS text, and footer text." },
-      "hint": { "displayName": "Wrapped hint", "purpose": "Supporting guidance with proportional line height." },
-      "label-scale": { "displayName": "Meter tick", "purpose": "Level meter tick labels." }
-    },
-    "shadows": [],
-    "motion": [],
-    "breakpoints": [
-      { "name": "compact-waveform", "value": "820px", "condition": "window.height < 820", "purpose": "Use the compact waveform panel height." }
-    ],
-    "nativeQt": {
-      "platform": "Native Linux desktop",
-      "interface": "Qt Quick Controls Material",
-      "coordinateUnits": "QML coordinate units and font pixel sizes",
-      "componentFormat": "Native component metadata with source references",
-      "browserPreviews": false,
-      "tokenAuthority": "DESIGN.md frontmatter",
-      "tonalRamps": "The source defines no tonal ramps. This record adds none.",
-      "authoredVisualMotion": "The source defines no custom visual animations.",
-      "sources": {
-        "product": "PRODUCT.md",
-        "direction": ".impeccable/surfaces/main.md",
-        "window": "src/Main.qml",
-        "numericControl": "src/ValueControl.qml",
-        "toggleControl": "src/ToggleControl.qml",
-        "themeInterface": "src/theme.h",
-        "themeImplementation": "src/theme.cpp",
-        "audioStates": "src/audio.cpp",
-        "audioProperties": "src/audio.h",
-        "hardwareQueue": "src/backend.cpp",
-        "hardwareSupport": "src/protocol.cpp",
-        "applicationStyle": "src/main.cpp",
-        "resources": "src/resources.qrc",
-        "tests": "tests/podtune_tests.cpp"
-      },
-      "paletteModes": {
-        "dark": {
-          "background": "{colors.dark-background}",
-          "surface": "{colors.dark-surface}",
-          "foreground": "{colors.dark-foreground}",
-          "secondary": "{colors.dark-secondary}",
-          "border": "{colors.dark-border}",
-          "accent": "{colors.dark-accent}",
-          "accentForeground": "{colors.accent-ink-dark}"
-        },
-        "light": {
-          "background": "{colors.light-background}",
-          "surface": "{colors.light-surface}",
-          "foreground": "{colors.light-foreground}",
-          "secondary": "{colors.light-secondary}",
-          "border": "{colors.light-border}",
-          "accent": "{colors.light-accent}",
-          "accentForeground": "{colors.accent-ink-light}"
-        },
-        "omarchy": {
-          "background": "Import background from the current theme file.",
-          "foreground": "Import foreground from the current theme file.",
-          "accent": "Import accent from the current theme file.",
-          "surface": "Use the shared Qt surface algorithm.",
-          "secondary": "Use the shared RGB mixture.",
-          "border": "Use the shared RGB mixture.",
-          "accentForeground": "Use the shared accent luminance algorithm.",
-          "observation": {
-            "background": "{colors.omarchy-observed-background}",
-            "surface": "{colors.omarchy-observed-surface}",
-            "foreground": "{colors.omarchy-observed-foreground}",
-            "secondary": "{colors.omarchy-observed-secondary}",
-            "border": "{colors.omarchy-observed-border}",
-            "accent": "{colors.omarchy-observed-accent}",
-            "accentForeground": "{colors.accent-ink-dark}",
-            "scope": "The inspected theme and review image, not permanent Omarchy colors."
-          }
-        }
-      },
-      "themeAlgorithms": {
-        "surface": { "operation": "QColor(background()).lighter(factor).name()", "darkFactor": 124, "lightFactor": 103 },
-        "secondary": { "operation": "QColor::fromRgbF(...).name()", "foregroundWeight": 0.74, "backgroundWeight": 0.26 },
-        "border": { "operation": "QColor::fromRgbF(...).name()", "foregroundWeight": 0.18, "backgroundWeight": 0.82 },
-        "accentForeground": {
-          "channelRange": "0 through 1",
-          "linearLowCondition": "c <= 0.04045",
-          "linearLow": "c / 12.92",
-          "linearHigh": "pow((c + 0.055) / 1.055, 2.4)",
-          "luminance": "0.2126 * R + 0.7152 * G + 0.0722 * B",
-          "threshold": 0.179,
-          "aboveThreshold": "{colors.accent-ink-dark}",
-          "atOrBelowThreshold": "{colors.accent-ink-light}"
-        },
-        "omarchyImport": {
-          "path": "~/.local/state/omarchy/current/theme/colors.toml",
-          "keys": ["background", "foreground", "accent"],
-          "acceptedValues": "Quoted six-digit hex values",
-          "darkCondition": "QColor(background).lightnessF() < 0.5",
-          "ignoredModeField": true,
-          "initialAndMissingKeyFallbacks": {
-            "background": "{colors.dark-background}",
-            "foreground": "{colors.dark-foreground}",
-            "accent": "{colors.dark-accent}"
-          },
-          "unreadableFile": "Retain the previous imported colors.",
-          "watchScope": "The current theme file, theme directory, current path, and available parent directories.",
-          "reloadDebounceMs": 80
-        },
-        "modePreference": { "storage": "QSettings", "key": "theme", "default": "dark", "values": ["dark", "light", "omarchy"] }
-      },
-      "layout": {
-        "window": { "initialWidth": 1280, "initialHeight": 860, "minimumWidth": 1040, "minimumHeight": 720 },
-        "outer": { "margin": "{spacing.window-inset}", "spacing": "{spacing.waveform-inset}" },
-        "mainRow": { "spacing": "{spacing.window-inset}", "verticalRuleWidth": 1, "stackedVariant": false },
-        "presets": { "preferredWidth": 196, "maximumWidth": 210, "spacing": "{spacing.inset}", "listSpacing": "{spacing.preset-gap}" },
-        "controls": {
-          "minimumWidth": 300,
-          "preferredWidth": 410,
-          "fillWidth": true,
-          "columnSpacing": "{spacing.compact}",
-          "scrollContentWidth": "availableWidth - 14",
-          "scrollContentSpacing": "{spacing.group-gap}",
-          "pairedControlSpacing": "{spacing.paired-controls}"
-        },
-        "voiceTest": { "minimumWidth": 290, "preferredWidth": 350, "spacing": "{spacing.group-gap}", "takeListSpacing": "{spacing.group-gap}" },
-        "header": { "titleSpacing": "{spacing.compact}", "themeSelectorImplicitWidth": 136, "busyIndicatorSize": 24 },
-        "footer": { "preferredHeight": 28, "historyButtonImplicitHeight": 28, "noticeOverflow": "Text.ElideRight" },
-        "dialogs": { "helpWidth": 520, "exitWidth": 400, "modal": true, "position": "Window center" },
-        "scrollAreas": ["Preset list", "Sound and headphone controls", "Take list"],
-        "preferredWidthMeaning": "Qt computes the final widths. Preferred widths are not fixed rendered dimensions."
-      },
-      "componentStates": {
-        "nativeControls": {
-          "styling": "Qt Material supplies inherited shape, hover, focus, pressed, and disabled treatments.",
-          "flatActions": ["Headphones", "Open folder", "Trash", "Undo", "Redo"]
-        },
-        "recordButton": {
-          "backgroundBinding": "theme.accent",
-          "textBinding": "theme.accentForeground",
-          "pressedBackground": "Qt.darker(theme.accent, 1.15)",
-          "focusBorderWidth": 2,
-          "focusBorderColor": "theme.foreground",
-          "idleLabel": "Record test",
-          "activeLabel": "Stop with elapsed whole seconds"
-        },
-        "presetButton": {
-          "restFill": "{colors.transparent}",
-          "hoverAndSelectedFill": "theme.surface",
-          "restBorderColor": "theme.border",
-          "selectedBorderColor": "theme.accent",
-          "restAndSelectedBorderWidth": 1,
-          "focusBorderColor": "theme.accent",
-          "focusBorderWidth": 2,
-          "initialSelection": -1,
-          "selectionMeaning": "The clicked row, not verified hardware success.",
-          "enabledCondition": "!backend.busy",
-          "descriptionSpacing": "{spacing.annotation}"
-        },
-        "numericControl": {
-          "readoutMinimumWidth": 85,
-          "readoutAlignment": "Right",
-          "rowSpacing": "{spacing.flush}",
-          "availableCondition": "backend.supported[controlKey] === true",
-          "unavailableText": "Unavailable",
-          "unavailableLabelColor": "theme.secondary",
-          "enabledDuringBusy": true,
-          "previewPriority": ["Pending request", "In-flight request", "Verified value"],
-          "requestDebounceMs": 160
-        },
-        "toggleControl": {
-          "enabledCondition": "backend.supported[controlKey] === true && !backend.busy",
-          "checkedBinding": "backend.values[controlKey] === true"
-        },
-        "presetName": { "maximumLength": 64, "accessibleName": "New preset name", "placeholderColor": "theme.secondary" },
-        "errorBanner": {
-          "visibleCondition": "backend.error.length > 0 || audio.error.length > 0",
-          "messages": "Nonempty backend and audio errors on separate lines",
-          "height": "Text implicit height + 24",
-          "darkBorder": "{colors.error-border-dark}",
-          "lightBorder": "{colors.error-border-light}"
-        }
-      },
-      "focusAndShortcuts": {
-        "scope": "Qt.ApplicationShortcut",
-        "explicitTabOrder": false,
-        "dialogGuard": "Suspend all shortcuts while the help or exit dialog is open.",
-        "textGuard": "TextInput or TextEdit focus blocks all six shortcuts.",
-        "spaceGuard": "Any Control focus also blocks Space.",
-        "shortcuts": [
-          { "sequence": "?", "action": "Open help" },
-          { "sequence": "Q", "action": "Quit or open the active-task exit dialog" },
-          { "sequence": "Space", "action": "Start or stop a record" },
-          { "sequence": "Ctrl+Z", "action": "Undo a verified hardware change" },
-          { "sequence": "Ctrl+Shift+Z", "action": "Redo a hardware change" },
-          { "sequence": "Ctrl+R", "action": "Refresh hardware state" }
-        ],
-        "accessibleNames": {
-          "themeSelector": "Theme mode",
-          "presetName": "New preset name",
-          "numericControl": "The control label",
-          "numericDescription": "Hardware control in the configured unit",
-          "toggleControl": "The switch label",
-          "presetButton": "The preset name with its description",
-          "playTake": "The current action and voice test name",
-          "trashTake": "Move the named voice test to trash"
-        },
-        "sourceGaps": [
-          "The custom waveform and meter define no explicit accessible role or value.",
-          "The source defines no explicit live announcement for errors or level changes."
+      "dark-background": {
+        "role": "neutral",
+        "displayName": "Graphite Ground",
+        "purpose": "Dark window ground. The drawer and the Guide use it too.",
+        "tonalRamp": [
+          "#090b0e",
+          "#232528",
+          "#404246",
+          "#5f6165",
+          "#808286",
+          "#a2a5a9",
+          "#c6c9cd",
+          "#eceff3"
         ]
       },
-      "measuredSignal": {
-        "source": "Captured input audio",
-        "intervalMs": 50,
-        "maximumHistoryPeaks": 100,
-        "approximateHistorySeconds": 5,
-        "waveform": {
-          "kind": "Symmetric interval-peak bars",
-          "barColor": "theme.accent",
-          "centerRuleColor": "theme.border",
-          "centerRuleWidth": 1,
-          "barHeight": "max(1, sqrt(peak) * (canvasHeight - 8))",
-          "barWidth": "max(1, canvasWidth / 100 - 1)",
-          "partialHistoryAlignment": "Right",
-          "inactivePrompt": "The waveform appears during a level check.",
-          "inactiveHistory": "Retain the last samples behind the inactive prompt.",
-          "newCapture": "Clear waveform history.",
-          "activeSilence": "Use minimum-height bars from measured zero peaks.",
-          "playbackSource": false
-        },
-        "readouts": { "unit": "dBFS", "decimals": 1, "silenceFloor": -90, "inactive": "Show dash placeholders." },
-        "meter": {
-          "fillFraction": "clamp((peakDb + 60) / 60, 0, 1)",
-          "ticksDbfs": [-60, -18, -6, 0],
-          "highCondition": "peakDb > -3",
-          "normalColor": "theme.accent",
-          "highDarkColor": "{colors.signal-high-dark}",
-          "highLightColor": "{colors.signal-high-light}",
-          "highMeaning": "Headroom warning, not a clipped-sample assertion."
-        },
-        "guidance": [
-          { "condition": "!audio.active", "state": "Start a level check" },
-          { "condition": "peakDb > -3", "state": "Too high" },
-          { "condition": "peakDb < -45", "state": "No speech or low signal" },
-          { "condition": "-45 <= peakDb && peakDb < -18", "state": "Low signal" },
-          { "condition": "-18 <= peakDb && peakDb <= -6", "state": "Target range" },
-          { "condition": "-6 < peakDb && peakDb <= -3", "state": "High signal" }
+      "dark-surface": {
+        "role": "neutral",
+        "displayName": "Raised Graphite",
+        "purpose": "Dark cards, dialogs, tooltips, and hover fills.",
+        "tonalRamp": [
+          "#090b0f",
+          "#232529",
+          "#404246",
+          "#5f6166",
+          "#808287",
+          "#a2a5aa",
+          "#c6c9cf",
+          "#eceef4"
+        ]
+      },
+      "dark-foreground": {
+        "role": "neutral",
+        "displayName": "Bench White",
+        "purpose": "Dark text, the set-point tick, and slider knobs.",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#242526",
+          "#414243",
+          "#606163",
+          "#818284",
+          "#a4a5a7",
+          "#c8c9cb",
+          "#edeef0"
+        ]
+      },
+      "dark-secondary": {
+        "role": "neutral",
+        "displayName": "Readout Grey",
+        "purpose": "Dark supporting text and section labels.",
+        "tonalRamp": [
+          "#0a0b0c",
+          "#242527",
+          "#414244",
+          "#606163",
+          "#818284",
+          "#a4a5a7",
+          "#c8c9cb",
+          "#edeef0"
+        ]
+      },
+      "dark-border": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "purpose": "Dark card borders, rules, and resting ticks.",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#232528",
+          "#404245",
+          "#5f6165",
+          "#808286",
+          "#a3a5a9",
+          "#c7c9cd",
+          "#eceff2"
+        ]
+      },
+      "dark-line": {
+        "role": "neutral",
+        "displayName": "Inner Rule",
+        "purpose": "Dark row dividers and the selected theme segment.",
+        "tonalRamp": [
+          "#090b0e",
+          "#232529",
+          "#404246",
+          "#5f6166",
+          "#808287",
+          "#a2a5aa",
+          "#c7c9ce",
+          "#eceef4"
+        ]
+      },
+      "dark-tint": {
+        "role": "neutral",
+        "displayName": "Gold Wash",
+        "purpose": "Dark selected preset card and pill fill.",
+        "tonalRamp": [
+          "#0c0b08",
+          "#262521",
+          "#43423e",
+          "#62615d",
+          "#83827d",
+          "#a6a5a0",
+          "#cac9c4",
+          "#f0eee9"
+        ]
+      },
+      "dark-accent": {
+        "role": "primary",
+        "displayName": "Instrument Gold",
+        "purpose": "Dark filled ranges, primary action, selection, and focus.",
+        "tonalRamp": [
+          "#1a0500",
+          "#362000",
+          "#553e00",
+          "#765e1a",
+          "#987f3f",
+          "#bca262",
+          "#e1c785",
+          "#ffeca9"
+        ]
+      },
+      "dark-high": {
+        "role": "tertiary",
+        "displayName": "Hot Signal",
+        "purpose": "Dark headroom warning and the recording dot.",
+        "tonalRamp": [
+          "#260000",
+          "#470f00",
+          "#692f13",
+          "#8c4e34",
+          "#b17054",
+          "#d69276",
+          "#fdb699",
+          "#ffdbbd"
+        ]
+      },
+      "dark-scrim": {
+        "role": "neutral",
+        "displayName": "Dark Scrim",
+        "purpose": "Dark overlay behind the drawer and dialogs.",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242527",
+          "#404244",
+          "#606163",
+          "#818284",
+          "#a3a5a7",
+          "#c7c9cb",
+          "#edeff1"
         ],
-        "clippedSampleCondition": "Finite sample with abs(sample) >= 0.999",
-        "qualityScope": "Signal level only. The listener judges tone, distortion, room noise, and comfort."
+        "note": "CSS #RRGGBBAA. Qt stores this value as #AARRGGBB."
       },
-      "hardwareStates": {
-        "usbDevice": "19f7:004a",
-        "verifiedDspFirmware": "1.19",
-        "availabilitySource": "The result of each hardware control read",
-        "readBack": "Read the current value before a write and read it again after the write.",
-        "unavailableNumeric": "Show Unavailable and disable the slider.",
-        "unavailableToggle": "Disable the switch without asserting an available off state.",
-        "hidFailure": "ALSA gain and computer playback controls can remain available after successful reads.",
-        "unverifiedFirmware": "Expose no DSP map and retain readable standard mixer controls.",
-        "audioWithoutHid": "Qt audio input can support voice tests without HID access.",
-        "missingAudioDevice": "Report the missing PodMic input or headphone output without substituting another device.",
-        "noiseGate": "Expose verified parameters without an independent enable switch.",
-        "headphoneOutputLevel": "Use the physical microphone dial.",
-        "monitorMix": "Display the raw device value. Endpoint direction remains open."
+      "dark-mark-rest": {
+        "role": "neutral",
+        "displayName": "Dark Rest Bar",
+        "purpose": "Short bar of the Set point mark on the Dark ground.",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#232528",
+          "#404245",
+          "#5f6164",
+          "#808286",
+          "#a3a5a9",
+          "#c7c9cd",
+          "#eceff2"
+        ]
       },
-      "localVoiceTest": {
-        "recordStart": "Stop playback and start input capture when needed.",
-        "recordStop": "Save the take and leave the level check active.",
-        "takeLimitSeconds": 60,
-        "limitCheck": "The meter timer stops the take when elapsed time reaches the limit.",
-        "requestedCapture": "48 kHz mono float",
-        "unsupportedCaptureRequest": "Use the device's preferred audio format.",
-        "savedFormat": "Mono 16-bit PCM WAV at the actual capture sample rate",
-        "measurementFile": "A JSON file beside each recorded WAV",
-        "directory": "QStandardPaths::GenericDataLocation + /podtune/recordings",
-        "takeName": "ddd HH:mm:ss",
-        "takeOrder": "Newest timestamp filenames first",
-        "rowMeasurements": ["Duration", "Peak dBFS", "Clipped samples"],
-        "missingMetadataLabel": "WAV voice test",
-        "playbackDevice": "PodMic USB headphone output",
-        "activePlaybackAction": "Stop",
-        "disabledDuringRecord": ["Check levels", "Play", "Trash"],
-        "trash": "Move the WAV and available measurement file to the desktop trash.",
-        "openFolder": "Open the local recordings directory.",
-        "comparison": "Record separate takes and compare them manually through playback.",
-        "exitCondition": "audio.recording || backend.busy",
-        "exitAction": "Save the current take and wait for the hardware thread through object cleanup."
+      "light-background": {
+        "role": "neutral",
+        "displayName": "Paper Ground",
+        "purpose": "Light window ground.",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#242526",
+          "#414243",
+          "#606163",
+          "#818284",
+          "#a4a5a7",
+          "#c8c9cb",
+          "#edeef0"
+        ]
       },
-      "assets": {
-        "shippingRasterCount": 0,
-        "icon": {
-          "path": "pkgbuild/podtune.svg",
-          "kind": "Authored SVG",
-          "resource": "qrc:/podtune.svg",
-          "viewBox": "0 0 64 64",
-          "backgroundColor": "{colors.icon-background}",
-          "strokeColor": "{colors.dark-accent}",
-          "backgroundRadius": 12,
-          "capsuleRadius": 8,
-          "strokeWidth": 3,
-          "strokeCaps": "Round"
-        },
-        "reviewCaptures": [".impeccable/review/dark.png", ".impeccable/review/light.png", ".impeccable/review/omarchy.png"],
-        "reviewCapturesShip": false
+      "light-surface": {
+        "role": "neutral",
+        "displayName": "Raised Paper",
+        "purpose": "Light cards, dialogs, tooltips, and hover fills.",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#242526",
+          "#414243",
+          "#606163",
+          "#818284",
+          "#a4a5a7",
+          "#c8c9cb",
+          "#edeef0"
+        ]
       },
-      "evidence": {
-        "reviewSize": "1280 × 860",
-        "reviewStates": ["Real HID permission failure", "Available input gain", "Unavailable DSP controls", "Inactive voice test"],
-        "paletteCheck": "Source formulas and sampled review-image colors agree.",
-        "omarchyObservationSource": "~/.local/state/omarchy/current/theme/colors.toml",
-        "detector": "The HTML and CSS detector does not apply to native Linux QML.",
-        "contextLoaderDrift": "The context loader misclassifies `Native Linux desktop.` as web. The QML implementation establishes the native platform.",
-        "testSourceCoverage": ["Signal statistics", "WAV headers", "Protocol values", "Optional real-device record and playback"],
-        "freshHardwareTest": false,
-        "freshRuntimeAccessibilityTest": false
+      "light-foreground": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "purpose": "Light text, the set-point tick, and slider knobs.",
+        "tonalRamp": [
+          "#080b11",
+          "#21252b",
+          "#3e4249",
+          "#5d6269",
+          "#7e838a",
+          "#a0a5ad",
+          "#c4cad2",
+          "#e9eff7"
+        ]
       },
-      "openFacts": [
-        "Power-cycle persistence needs a separate hardware check.",
-        "Monitor mix endpoint direction needs hardware verification.",
-        "The runtime environment resolves the generic font family and inherited Qt control metrics.",
-        "Minimum-size behavior, focus traversal, and screen-reader output need runtime verification beyond the review images."
-      ],
-      "notCanonized": [
-        "The waveform and meter lack explicit accessible roles or values.",
-        "The source defines no explicit live announcement for errors or level changes.",
-        "These source gaps remain documented facts and are not reusable design rules."
-      ]
+      "light-secondary": {
+        "role": "neutral",
+        "displayName": "Light Readout Grey",
+        "purpose": "Light supporting text and section labels.",
+        "tonalRamp": [
+          "#090b0f",
+          "#232529",
+          "#3f4247",
+          "#5e6166",
+          "#7f8288",
+          "#a2a5ab",
+          "#c6c9cf",
+          "#ebeff5"
+        ]
+      },
+      "light-border": {
+        "role": "neutral",
+        "displayName": "Light Hairline",
+        "purpose": "Light card borders, rules, and resting ticks.",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242527",
+          "#414244",
+          "#606164",
+          "#818285",
+          "#a4a5a8",
+          "#c8c9cc",
+          "#edeef1"
+        ]
+      },
+      "light-line": {
+        "role": "neutral",
+        "displayName": "Light Inner Rule",
+        "purpose": "Light row dividers and the selected theme segment.",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242527",
+          "#414244",
+          "#606164",
+          "#818285",
+          "#a4a5a8",
+          "#c8c9cc",
+          "#edeef1"
+        ]
+      },
+      "light-tint": {
+        "role": "neutral",
+        "displayName": "Brass Wash",
+        "purpose": "Light selected preset card and pill fill.",
+        "tonalRamp": [
+          "#0e0b04",
+          "#28251c",
+          "#464238",
+          "#656157",
+          "#868277",
+          "#a9a599",
+          "#cec9bd",
+          "#f3eee2"
+        ]
+      },
+      "light-accent": {
+        "role": "primary",
+        "displayName": "Deep Brass",
+        "purpose": "Light filled ranges, primary action, selection, and focus.",
+        "tonalRamp": [
+          "#1b0400",
+          "#381f00",
+          "#573d00",
+          "#785d21",
+          "#9a7e44",
+          "#bea166",
+          "#e3c589",
+          "#ffebae"
+        ]
+      },
+      "light-high": {
+        "role": "tertiary",
+        "displayName": "Light Hot Signal",
+        "purpose": "Light headroom warning and the recording dot.",
+        "tonalRamp": [
+          "#330000",
+          "#580000",
+          "#7e1000",
+          "#a43916",
+          "#cb5c3c",
+          "#f2805e",
+          "#ffa482",
+          "#ffcaa6"
+        ]
+      },
+      "light-scrim": {
+        "role": "neutral",
+        "displayName": "Light Scrim",
+        "purpose": "Light overlay behind the drawer and dialogs.",
+        "tonalRamp": [
+          "#080b11",
+          "#21252b",
+          "#3e4249",
+          "#5d6269",
+          "#7e838a",
+          "#a0a5ad",
+          "#c4cad2",
+          "#e9eff7"
+        ],
+        "note": "CSS #RRGGBBAA. Qt stores this value as #AARRGGBB."
+      },
+      "light-mark-rest": {
+        "role": "neutral",
+        "displayName": "Light Rest Bar",
+        "purpose": "Short bar of the Set point mark on the Light ground.",
+        "tonalRamp": [
+          "#0a0b0d",
+          "#242527",
+          "#404245",
+          "#606164",
+          "#818285",
+          "#a3a5a8",
+          "#c7c9cc",
+          "#eceff2"
+        ]
+      },
+      "omarchy-observed-background": {
+        "role": "neutral",
+        "displayName": "Observed Omarchy Ground",
+        "purpose": "Sample of the imported background.",
+        "tonalRamp": [
+          "#040e06",
+          "#1c291f",
+          "#38463b",
+          "#57665a",
+          "#78877b",
+          "#9aaa9d",
+          "#becec1",
+          "#e3f4e6"
+        ]
+      },
+      "omarchy-observed-surface": {
+        "role": "neutral",
+        "displayName": "Observed Omarchy Surface",
+        "purpose": "Sample of the derived raised surface.",
+        "tonalRamp": [
+          "#030f05",
+          "#1a291d",
+          "#364739",
+          "#556658",
+          "#768878",
+          "#98ab9b",
+          "#bccfbe",
+          "#e1f5e3"
+        ]
+      },
+      "omarchy-observed-foreground": {
+        "role": "neutral",
+        "displayName": "Observed Omarchy Text",
+        "purpose": "Sample of the imported foreground.",
+        "tonalRamp": [
+          "#100b00",
+          "#2a2510",
+          "#47422c",
+          "#67614b",
+          "#88836b",
+          "#aba58d",
+          "#d0cab0",
+          "#f5efd5"
+        ]
+      },
+      "omarchy-observed-secondary": {
+        "role": "neutral",
+        "displayName": "Observed Omarchy Readout",
+        "purpose": "Sample of the derived supporting text.",
+        "tonalRamp": [
+          "#0e0b00",
+          "#282614",
+          "#454331",
+          "#64624f",
+          "#85836f",
+          "#a8a691",
+          "#cccab5",
+          "#f2f0d9"
+        ]
+      },
+      "omarchy-observed-border": {
+        "role": "neutral",
+        "displayName": "Observed Omarchy Hairline",
+        "purpose": "Sample of the derived border.",
+        "tonalRamp": [
+          "#070d04",
+          "#20281c",
+          "#3d4539",
+          "#5c6457",
+          "#7c8678",
+          "#9fa99a",
+          "#c3cdbe",
+          "#e8f2e3"
+        ]
+      },
+      "omarchy-observed-line": {
+        "role": "neutral",
+        "displayName": "Observed Omarchy Inner Rule",
+        "purpose": "Sample of the derived inner divider.",
+        "tonalRamp": [
+          "#060e06",
+          "#1e281e",
+          "#3b453b",
+          "#596559",
+          "#7a867a",
+          "#9da99c",
+          "#c0cdc0",
+          "#e5f3e5"
+        ]
+      },
+      "omarchy-observed-tint": {
+        "role": "neutral",
+        "displayName": "Observed Omarchy Wash",
+        "purpose": "Sample of the derived accent tint.",
+        "tonalRamp": [
+          "#010f04",
+          "#182a1c",
+          "#344838",
+          "#536757",
+          "#748977",
+          "#96ac9a",
+          "#b9d0bd",
+          "#def6e2"
+        ]
+      },
+      "omarchy-observed-accent": {
+        "role": "primary",
+        "displayName": "Observed Omarchy Green",
+        "purpose": "Sample of the imported accent.",
+        "tonalRamp": [
+          "#001400",
+          "#003105",
+          "#085023",
+          "#317142",
+          "#539362",
+          "#76b784",
+          "#9adca7",
+          "#bfffcb"
+        ]
+      },
+      "omarchy-observed-scrim": {
+        "role": "neutral",
+        "displayName": "Observed Omarchy Scrim",
+        "purpose": "Sample of the derived scrim.",
+        "tonalRamp": [
+          "#080d09",
+          "#212723",
+          "#3e4440",
+          "#5c635f",
+          "#7d8480",
+          "#a0a7a2",
+          "#c4cbc6",
+          "#e9f1ec"
+        ],
+        "note": "CSS #RRGGBBAA. Qt stores this value as #AARRGGBB."
+      },
+      "accent-ink-dark": {
+        "role": "neutral",
+        "displayName": "Dark Accent Ink",
+        "purpose": "Text on a light accent fill.",
+        "tonalRamp": [
+          "#090b0d",
+          "#232527",
+          "#404245",
+          "#5f6164",
+          "#808385",
+          "#a2a5a8",
+          "#c6c9cc",
+          "#eceff2"
+        ]
+      },
+      "accent-ink-light": {
+        "role": "neutral",
+        "displayName": "Light Accent Ink",
+        "purpose": "Text on a dark accent fill.",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "icon-tile": {
+        "role": "neutral",
+        "displayName": "Icon Tile",
+        "purpose": "Fixed tile of the app icon.",
+        "tonalRamp": [
+          "#090b10",
+          "#22252a",
+          "#3f4248",
+          "#5e6167",
+          "#7f8289",
+          "#a1a5ac",
+          "#c5c9d0",
+          "#ebeff6"
+        ]
+      },
+      "icon-rest": {
+        "role": "neutral",
+        "displayName": "Icon Rest Bar",
+        "purpose": "Short bar of the app icon mark.",
+        "tonalRamp": [
+          "#090b10",
+          "#22252a",
+          "#3f4248",
+          "#5e6167",
+          "#7f8289",
+          "#a2a5ac",
+          "#c6c9d0",
+          "#ebeff6"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "value-display": {
+        "displayName": "Value display",
+        "purpose": "The live peak number in the voice test card."
+      },
+      "value-scale": {
+        "displayName": "Scale value",
+        "purpose": "The value at the right end of each tone scale."
+      },
+      "title-dialog": {
+        "displayName": "Dialog title",
+        "purpose": "Dialog titles and Guide topic titles."
+      },
+      "title-app": {
+        "displayName": "App title",
+        "purpose": "The wordmark and the drawer and Guide titles."
+      },
+      "title-row": {
+        "displayName": "Row title",
+        "purpose": "Tone row titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Preset names at weight 600 and general text."
+      },
+      "body-strong": {
+        "displayName": "Strong body",
+        "purpose": "Control labels."
+      },
+      "body-reading": {
+        "displayName": "Reading",
+        "purpose": "Guide steps and dialog prose."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Header identity and menu entries."
+      },
+      "label-action": {
+        "displayName": "Action label",
+        "purpose": "Button labels."
+      },
+      "label-small": {
+        "displayName": "Small label",
+        "purpose": "Subtitles, text buttons, tooltips, and the theme switch."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Hints, the footer notice, and helper text."
+      },
+      "readout": {
+        "displayName": "Readout",
+        "purpose": "Units, hardware detail values, and take statistics."
+      },
+      "section-label": {
+        "displayName": "Section label",
+        "purpose": "Uppercase section headings in supporting text."
+      },
+      "scale-tick": {
+        "displayName": "Scale tick",
+        "purpose": "Meter and curve tick labels and key caps."
+      },
+      "showcase-display": {
+        "displayName": "Showcase display",
+        "purpose": "The one h1 on the showcase page."
+      },
+      "showcase-headline": {
+        "displayName": "Showcase headline",
+        "purpose": "Section h2 titles on the showcase page."
+      },
+      "showcase-body": {
+        "displayName": "Showcase body",
+        "purpose": "Prose on the showcase page."
+      }
+    },
+    "shadows": [
+      {
+        "name": "screenshot-lift",
+        "value": "0 28px 48px -28px var(--shadow), 0 2px 6px -2px var(--shadow)",
+        "purpose": "Showcase page only. Lifts the demo video off the page. App surfaces cast no shadows."
+      },
+      {
+        "name": "screenshot-lift-soft",
+        "value": "0 24px 44px -26px var(--shadow)",
+        "purpose": "Showcase page only. Lifts the theme screenshot."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-change",
+        "value": "150ms linear",
+        "purpose": "Color, border, switch knob, and preset edge fade changes."
+      },
+      {
+        "name": "wheel-step",
+        "value": "110ms OutCubic",
+        "purpose": "One mouse wheel step of 96 px. Touchpad deltas apply directly. No inertia."
+      },
+      {
+        "name": "drawer-slide",
+        "value": "300ms cubic-bezier(0.2, 0.75, 0.2, 1)",
+        "purpose": "The Advanced drawer slides in from the right."
+      },
+      {
+        "name": "scrim-fade",
+        "value": "250ms linear",
+        "purpose": "The scrim behind the Advanced drawer."
+      },
+      {
+        "name": "guide-open",
+        "value": "180ms OutCubic",
+        "purpose": "The Guide fades in and rises 12 px."
+      },
+      {
+        "name": "guide-scroll",
+        "value": "260ms OutCubic",
+        "purpose": "The Guide scrolls to a topic."
+      },
+      {
+        "name": "drawer-scroll",
+        "value": "320ms OutCubic",
+        "purpose": "The drawer scrolls to a section."
+      },
+      {
+        "name": "topic-highlight",
+        "value": "200ms fade, 1600ms hold",
+        "purpose": "The accent bar beside the Guide topic title."
+      },
+      {
+        "name": "tooltip",
+        "value": "250ms delay, 120ms in, 80ms out",
+        "purpose": "Info tip tooltips."
+      },
+      {
+        "name": "showcase-theme",
+        "value": "0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Showcase page re-theme. Reduced motion removes it."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "frame-cap",
+        "value": "1440px",
+        "purpose": "Maximum content frame width. The frame is centered."
+      },
+      {
+        "name": "two-column",
+        "value": "960px",
+        "purpose": "From this frame width, two columns. Below it, one centered column of up to 680 px."
+      },
+      {
+        "name": "guide-toc",
+        "value": "900px",
+        "purpose": "From this window width, the Guide shows its table of contents."
+      },
+      {
+        "name": "tone-row-stack",
+        "value": "600px",
+        "purpose": "Below this row width, the tone title sits above the scale."
+      },
+      {
+        "name": "headphones-stack",
+        "value": "560px",
+        "purpose": "Below this card width, the headphone cells stack."
+      },
+      {
+        "name": "showcase-single",
+        "value": "900px",
+        "purpose": "Showcase grids collapse to one column."
+      },
+      {
+        "name": "showcase-phone",
+        "value": "560px",
+        "purpose": "Showcase side margins drop to 16 px."
+      }
+    ],
+    "nativeQt": {
+      "platform": "Native Linux desktop, Qt 6 Quick with Qt Quick Controls Material under custom controls",
+      "textPrimitive": "src/Txt.qml renders fractional sizes at double size and scales by 0.5. It centers glyphs in a line box of size times lh, with lh 1.4 by default.",
+      "fonts": "Geist Regular, Medium, SemiBold and Geist Mono Regular, Medium from third_party/geist, registered in src/main.cpp.",
+      "snippetValues": "Component snippets use literal Dark values. The app binds the same roles to the live theme object.",
+      "sources": {
+        "theme": "src/theme.cpp",
+        "window": "src/Main.qml",
+        "text": "src/Txt.qml",
+        "toneScale": "src/ToneRow.qml",
+        "presetCard": "src/PresetCard.qml",
+        "drawer": "src/AdvancedDrawer.qml",
+        "guide": "src/GuidePage.qml",
+        "guideTopics": "src/Guide.js",
+        "infoTip": "src/InfoTip.qml",
+        "scroll": "src/WheelScroll.qml",
+        "mark": "src/Logo.qml",
+        "icon": "pkgbuild/podtune.svg",
+        "showcase": "docs/style.css"
+      }
     }
   },
   "components": [
-    { "name": "Native text button", "kind": "button", "refersTo": "button-native", "description": "Qt Material supplies standard action and state behavior.", "source": "src/Main.qml" },
-    { "name": "Record button", "kind": "button", "refersTo": "button-record", "description": "The primary local voice test action uses live accent ink and a visible focus border.", "source": "src/Main.qml" },
-    { "name": "Preset button", "kind": "button", "refersTo": "button-preset", "description": "An outlined native action presents a preset name, description, selection, and focus state.", "source": "src/Main.qml" },
-    { "name": "Numeric hardware control", "kind": "input", "refersTo": "value-slider", "description": "A native slider pairs a label with an aligned value and genuine unavailable state.", "source": "src/ValueControl.qml" },
-    { "name": "Hardware switch", "kind": "input", "refersTo": "toggle-control", "description": "A native switch follows verified values and disables when unsupported or busy.", "source": "src/ToggleControl.qml" },
-    { "name": "Preset name field", "kind": "input", "refersTo": "preset-name", "description": "A named native text field accepts the local preset title.", "source": "src/Main.qml" },
-    { "name": "Error banner", "kind": "card", "refersTo": "error-banner", "description": "A tonal outlined panel shows genuine hardware and audio errors.", "source": "src/Main.qml" },
-    { "name": "Measured waveform", "kind": "custom", "refersTo": "waveform-panel", "description": "A native Canvas draws measured interval peaks and an inactive-state prompt.", "source": "src/Main.qml" },
-    { "name": "Input level meter", "kind": "custom", "refersTo": "level-meter", "description": "A native bar shows the measured input peak and a separate headroom warning.", "source": "src/Main.qml" }
+    {
+      "name": "Record Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one accent-filled action in a group. The dot becomes a square while recording.",
+      "html": "<button class=\"ds-btn-primary\"><span class=\"ds-dot\"></span>Record test</button>",
+      "css": ".ds-btn-primary { display:inline-flex; align-items:center; gap:9px; height:40px; padding:0 22px; border:0; border-radius:8px; background:#d0b675; color:#101214; font:600 13.5px/1 \"Geist\", \"Liberation Sans\", Arial, sans-serif; cursor:pointer; } .ds-btn-primary .ds-dot { width:9px; height:9px; border-radius:4.5px; background:#101214; } .ds-btn-primary:active { background:#b49d65; } .ds-btn-primary:focus-visible { outline:2px solid #f0f1f3; outline-offset:1px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Check levels, Advanced, and Keep working. Transparent with a hairline border.",
+      "html": "<button class=\"ds-btn-outline\">Check levels</button>",
+      "css": ".ds-btn-outline { height:40px; padding:0 18px; border:1px solid #3e4043; border-radius:8px; background:transparent; color:#f0f1f3; font:500 13.5px/1 \"Geist\", \"Liberation Sans\", Arial, sans-serif; cursor:pointer; transition:background-color .15s; } .ds-btn-outline:hover { background:#1d1f23; } .ds-btn-outline:focus-visible { outline:2px solid #d0b675; outline-offset:3px; }"
+    },
+    {
+      "name": "Theme Switch",
+      "kind": "nav",
+      "refersTo": "segmented-control",
+      "description": "The Dark, Light, and Omarchy segmented control in the header.",
+      "html": "<div class=\"ds-seg\" role=\"radiogroup\"><button aria-checked=\"true\">Dark</button><button aria-checked=\"false\">Light</button><button aria-checked=\"false\">Omarchy</button></div>",
+      "css": ".ds-seg { display:inline-flex; gap:2px; padding:3px; border:1px solid #3e4043; border-radius:8px; } .ds-seg button { height:26px; padding:0 11px; border:0; border-radius:6px; background:transparent; color:#b8b9bb; font:400 12.5px/1 \"Geist\", \"Liberation Sans\", Arial, sans-serif; cursor:pointer; } .ds-seg button:hover { color:#f0f1f3; } .ds-seg button[aria-checked=\"true\"] { background:#2c2e32; color:#f0f1f3; } .ds-seg button:focus-visible { outline:2px solid #d0b675; outline-offset:2px; }"
+    },
+    {
+      "name": "Preset Card",
+      "kind": "card",
+      "refersTo": "preset-card-selected",
+      "description": "A preset with its status and three 18-bar mini scales. Shown selected.",
+      "html": "<button class=\"ds-preset\"><b>Warm podcast</b><span class=\"ds-status\">Active</span><span class=\"ds-mini\"><em>W</em><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i></span><span class=\"ds-mini\"><em>P</em><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i></span><span class=\"ds-mini\"><em>L</em><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i></span></button>",
+      "css": ".ds-preset { display:flex; flex-direction:column; align-items:stretch; width:139px; height:128px; padding:14px 15px; border:1px solid #d0b675; border-radius:8px; background:#2a2925; color:#f0f1f3; text-align:left; font:600 14px/1.4 \"Geist\", \"Liberation Sans\", Arial, sans-serif; cursor:pointer; transition:background-color .15s, border-color .15s; } .ds-preset:hover { background:#1d1f23; } .ds-preset:focus-visible { outline:2px solid #d0b675; outline-offset:3px; } .ds-status { font:400 11.5px/1.4 \"Geist\", \"Liberation Sans\", Arial, sans-serif; color:#d0b675; margin-bottom:16px; } .ds-mini { display:flex; align-items:center; gap:3px; height:10px; margin-top:6px; } .ds-mini em { font:400 10px/1 \"Geist Mono\", ui-monospace, monospace; font-style:normal; color:#b8b9bb; width:14px; } .ds-mini i { width:2px; height:3px; border-radius:1px; background:#3e4043; } .ds-mini i.on { height:8px; background:#d0b675; }"
+    },
+    {
+      "name": "Tone Scale",
+      "kind": "custom",
+      "refersTo": "tick-scale",
+      "description": "The 64-tick slider. Accent ticks below the set point, a tall foreground set point, short border ticks after it.",
+      "html": "<div class=\"ds-tone\"><div class=\"ds-tone-title\"><b>Warmth</b><span>Adds low-end body</span></div><div class=\"ds-ticks\" role=\"slider\" tabindex=\"0\" aria-valuenow=\"63\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"pt\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i><i class=\"\"></i></div><span class=\"ds-tone-value\">63</span></div>",
+      "css": ".ds-tone { display:flex; align-items:center; gap:24px; padding:18px 20px; background:#1d1f23; border:1px solid #3e4043; border-radius:8px; color:#f0f1f3; font-family:\"Geist\", \"Liberation Sans\", Arial, sans-serif; } .ds-tone-title { display:flex; flex-direction:column; gap:3px; width:148px; } .ds-tone-title b { font:600 15px/1.4 \"Geist\", \"Liberation Sans\", Arial, sans-serif; } .ds-tone-title span { font:400 12.5px/1.4 \"Geist\", \"Liberation Sans\", Arial, sans-serif; color:#b8b9bb; } .ds-ticks { flex:1; display:flex; justify-content:space-between; align-items:center; height:32px; border-radius:7px; } .ds-ticks:focus-visible { outline:2px solid #d0b675; outline-offset:6px; } .ds-ticks i { width:2px; height:10px; border-radius:1px; background:#3e4043; } .ds-ticks i.on { height:20px; background:#d0b675; } .ds-ticks i.pt { height:30px; background:#f0f1f3; } .ds-tone-value { width:64px; text-align:right; font:400 28px/1 \"Geist Mono\", ui-monospace, monospace; letter-spacing:-0.56px; font-variant-numeric:tabular-nums; }"
+    },
+    {
+      "name": "Switch",
+      "kind": "input",
+      "refersTo": "switch-on",
+      "description": "A 36 by 20 switch. Accent fill and accent-ink knob when on.",
+      "html": "<button class=\"ds-switch\" role=\"switch\" aria-checked=\"true\"><span></span></button>",
+      "css": ".ds-switch { position:relative; width:36px; height:20px; padding:0; border:1px solid #d0b675; border-radius:10px; background:#d0b675; cursor:pointer; transition:background-color .15s, border-color .15s; } .ds-switch span { position:absolute; top:2px; left:18px; width:14px; height:14px; border-radius:7px; background:#101214; transition:left .15s; } .ds-switch[aria-checked=\"false\"] { background:transparent; border-color:#3e4043; } .ds-switch[aria-checked=\"false\"] span { left:2px; background:#b8b9bb; } .ds-switch:focus-visible { outline:2px solid #d0b675; outline-offset:2px; }"
+    },
+    {
+      "name": "Info Tip",
+      "kind": "custom",
+      "refersTo": "info-tip",
+      "description": "A 14 px ring beside a title. Hover shows the summary. Select opens the Guide at the topic. The app draws its mark with a text glyph, which this record does not canonize.",
+      "html": "<span class=\"ds-label\">Presets</span><button class=\"ds-info\" aria-label=\"About presets\"><svg viewBox=\"0 0 14 14\" aria-hidden=\"true\"><rect x=\"6.25\" y=\"3\" width=\"1.5\" height=\"1.5\" rx=\".75\"/><rect x=\"6.25\" y=\"5.75\" width=\"1.5\" height=\"5\" rx=\".75\"/></svg></button>",
+      "css": ".ds-label { font:600 11px/1.4 \"Geist\", \"Liberation Sans\", Arial, sans-serif; letter-spacing:0.99px; text-transform:uppercase; color:#b8b9bb; vertical-align:middle; } .ds-info { width:14px; height:14px; margin-left:6px; padding:0; vertical-align:middle; border:1px solid #3e4043; border-radius:7px; background:transparent; color:#b8b9bb; cursor:pointer; } .ds-info svg { display:block; width:12px; height:12px; fill:currentColor; } .ds-info:hover, .ds-info:focus-visible { border-color:#b8b9bb; color:#f0f1f3; outline:none; }"
+    },
+    {
+      "name": "Key Cap",
+      "kind": "chip",
+      "refersTo": "key-cap",
+      "description": "A shortcut key in Geist Mono with a hairline border.",
+      "html": "<span class=\"ds-kbd\">Space</span> <span class=\"ds-kbd-label\">Record</span>",
+      "css": ".ds-kbd { display:inline-block; height:18px; padding:0 6px; border:1px solid #3e4043; border-radius:4px; font:400 10.5px/16px \"Geist Mono\", ui-monospace, monospace; color:#b8b9bb; } .ds-kbd-label { font:400 12px/1.4 \"Geist\", \"Liberation Sans\", Arial, sans-serif; color:#b8b9bb; }"
+    },
+    {
+      "name": "Set Point Mark",
+      "kind": "custom",
+      "description": "The logo. Three accent bars, a tall foreground set point, and a short rest bar.",
+      "html": "<svg class=\"ds-mark\" viewBox=\"0 0 64 64\" aria-label=\"Podtune\"><rect class=\"f\" x=\"7\" y=\"23\" width=\"6\" height=\"18\" rx=\"3\"/><rect class=\"f\" x=\"18\" y=\"23\" width=\"6\" height=\"18\" rx=\"3\"/><rect class=\"f\" x=\"29\" y=\"23\" width=\"6\" height=\"18\" rx=\"3\"/><rect class=\"p\" x=\"40\" y=\"11\" width=\"6\" height=\"42\" rx=\"3\"/><rect class=\"r\" x=\"51\" y=\"28\" width=\"6\" height=\"8\" rx=\"3\"/></svg>",
+      "css": ".ds-mark { width:56px; height:56px; } .ds-mark .f { fill:#d0b675; } .ds-mark .p { fill:#f0f1f3; } .ds-mark .r { fill:#4b4d50; }"
+    }
   ],
   "narrative": {
-    "northStar": "Restrained instrument surface",
-    "overview": "Podtune uses a compact native Linux Qt Quick interface for microphone controls and local voice tests.\n`src/main.cpp` selects Qt Quick Controls Material.\nThe approved surface brief establishes one theme accent and a measured waveform beside the hardware controls.\nThe built interface keeps clear labels, aligned values, and separate scroll areas.\n\nThis document records the built choices rather than the requested capability list.\n`PRODUCT.md` supplies the product constraints.\n`.impeccable/surfaces/main.md` supplies the approved visual direction.\nThe QML components and `src/theme.cpp` supply the visual authority.\n`src/audio.cpp`, `src/backend.cpp`, and `src/protocol.cpp` establish the interaction states.",
+    "northStar": "The Tick-Scale Bench",
+    "overview": "Podtune looks like a calm measuring instrument. Every value sits on a scale of thin rounded bars. The accent marks the filled range and the set point. The ground stays dark and neutral, so the measured signal carries the color. The same tick bar appears in the tone scales, the preset cards, the waveform, the Set point mark, and the showcase page divider.\n\nThe app is a Qt Quick window with custom controls on top of Qt Quick Controls Material. Custom components bind every fill, text, and border to the live `theme` object. Dark, Light, and Omarchy modes therefore keep one hierarchy. The GitHub Pages showcase in `docs/` reuses the same palettes, the same fonts, the same mark, and a CSS tick-scale divider.\n\nDensity is medium. Section headings are small uppercase labels. Large mono numbers carry the measured values. Thin hairlines and one tonal step separate the groups. Motion is short and functional. Wheel scrolling has no inertia.",
     "keyCharacteristics": [
-      "One live theme accent identifies the record action, selected presets, and measured signal.",
-      "Thin rules and tonal fills separate compact control groups.",
-      "Numeric controls pair clear labels with right-aligned values and units.",
-      "Hardware failures remain visible beside independent audio test actions.",
-      "Native controls retain Qt Material behavior unless QML defines a custom treatment."
+      "One accent per theme fills the set ranges, the primary action, the selection, and the focus ring.",
+      "Values sit on tick scales of 2 px rounded bars, not on smooth tracks.",
+      "Geist is the text face. Geist Mono carries measured values, units, scale ticks, and key caps.",
+      "Surfaces are flat. Depth comes from one tonal step, hairlines, and a scrim.",
+      "Each control has an info tip that opens the full-window Guide at its topic.",
+      "Advanced controls live in a drawer that slides in from the right."
     ],
     "rules": [
-      { "name": "The Live Theme Rule", "body": "Bind custom controls to `theme` roles so Dark, Light, and Omarchy keep the same hierarchy.", "section": "colors" },
-      { "name": "The Verified Availability Rule", "body": "Expose hardware controls only through read-confirmed support and preserve genuine unavailable states.", "section": "components" },
-      { "name": "The Measured Signal Rule", "body": "Derive waveform, levels, guidance, and clipped-sample counts from captured audio rather than invented activity.", "section": "components" }
+      {
+        "name": "The Live Theme Rule",
+        "body": "Bind every custom color to a `theme` role. The QML contains no hard-coded hex color. The one derived color is the pressed record button, which uses `Qt.darker(theme.accent, 1.14)`.",
+        "section": "colors"
+      },
+      {
+        "name": "The Filled Range Rule",
+        "body": "The accent means \"set\" or \"measured\". Use it for filled ranges, set points, the selection, the primary action, and focus. Do not use it for decoration.",
+        "section": "colors"
+      },
+      {
+        "name": "The Measured Mono Rule",
+        "body": "Use Geist Mono only for numbers, units, scale ticks, commands, and keys. Set tabular figures on any value that changes live.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Bench Rule",
+        "body": "App surfaces never cast shadows. To raise a surface, use the raised surface color, a border, or a scrim.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do bind custom fills, text, and borders to the live theme roles.",
-      "Do retain native Qt control behavior and explicit accessible names.",
-      "Do show real support, read-back values, units, and hardware errors.",
-      "Do keep numeric readouts aligned and reserve their minimum width.",
-      "Do derive audio feedback from measured samples and keep voice tests local.",
-      "Do distinguish high signal level from clipped-sample counts and subjective voice quality."
+      "Do bind every custom color to a `theme` role, so Dark, Light, and Omarchy keep one hierarchy.",
+      "Do show a value on a tick scale of 2 px rounded bars, with the accent for the filled range and the foreground color for the set point.",
+      "Do render all app text through `Txt.qml`, so fractional sizes and centered line boxes stay exact.",
+      "Do use Geist Mono with tabular figures for live numbers, units, and scale ticks.",
+      "Do give each new control an info tip and a Guide topic in `Guide.js`.",
+      "Do put secondary hardware controls in the Advanced drawer, not in the main page.",
+      "Do keep radii between 6 px and 12 px by component size, and draw a 2 px accent focus ring outside the control.",
+      "Do use `WheelScroll.qml` for every scroll area, so scrolling stays exact and without inertia.",
+      "Do draw icons as shapes or inline SVG."
     ],
     "donts": [
-      "Don't freeze the observed Omarchy palette into the live theme implementation.",
-      "Don't replace measured audio feedback with invented waveform activity.",
-      "Don't present unavailable controls as verified hardware settings.",
-      "Don't add a noise gate enable switch without a verified protocol operation.",
-      "Don't label monitor mix endpoints as microphone or computer without hardware evidence.",
-      "Don't claim power-cycle persistence, whole-app accessibility, or additional platform support from these source records."
+      "Don't add shadows to app surfaces. Use the raised surface, a border, or the scrim.",
+      "Don't use the accent for decoration. It marks set ranges, measured signal, the selection, the primary action, and focus.",
+      "Don't put more than one accent-filled action in one group.",
+      "Don't hard-code hex colors in QML. The pressed record button is the only derived color.",
+      "Don't freeze the observed Omarchy colors into code. Omarchy mode reads the live theme file.",
+      "Don't add a third font family or use a system display face."
     ]
   }
 }

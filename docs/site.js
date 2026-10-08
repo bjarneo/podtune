@@ -16,7 +16,7 @@
     syncDemo();
   }
 
-  // The demo follows the page theme, and phones get a crop of the voice test half.
+  // The demo follows the page theme, and phones get the voice test column.
   var video = document.getElementById("demo");
   var phone = window.matchMedia ? window.matchMedia("(max-width: 560px)") : null;
   function reducedMotion() {

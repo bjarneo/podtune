@@ -123,7 +123,6 @@ p { margin: 0; text-wrap: pretty; }
 .feature-shot { margin: 0; }
 .feature-shot img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--bd); background: var(--sf); }
 .feature-shot.tall { max-width: 460px; justify-self: center; }
-.note { margin-top: 56px; color: var(--fg2); font-size: 0.875rem; }
 .feature.flip .feature-shot.tall { justify-self: center; }
 
 /* Verified table */
@@ -180,7 +179,7 @@ code.inline { font-size: 0.9em; padding: 2px 6px; border-radius: 5px; background
   .actions { width: 100%; }
   .actions .button { flex: 1 1 auto; }
   .demo { width: 100%; }
-  .demo video { border-radius: 10px; aspect-ratio: 764 / 964; }
+  .demo video { border-radius: 10px; aspect-ratio: 550 / 964; }
   .seg { width: 100%; }
   .seg button { flex: 1; padding: 0 8px; }
   td:first-child { white-space: normal; }
