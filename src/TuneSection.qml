@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Templates as T
 import "Controls.js" as C
 
 // Presets, the three tone scales, and the headphone controls.
@@ -8,6 +9,64 @@ Column {
     property var outerScroll: null
     signal openDrawer(string target)
     readonly property var values: app.values
+
+    // Moves the preset row so that the first hidden card on one side becomes fully visible.
+    // The edge keeps 40 px of the card before it, under the fade and the button.
+    function pagePresets(direction) {
+        const view = presetList
+        const margin = 40
+        const end = view.originX + Math.max(0, view.contentWidth - view.width)
+        const from = presetScroll.glide.running ? presetScroll.glide.to : view.contentX
+        let target = from
+        if (direction > 0) {
+            const card = view.itemAt(from + view.width - 1, 10)
+            target = (card && card.x + card.width > from + view.width + 0.5 ? card.x : from + view.width) - margin
+        } else {
+            const card = view.itemAt(from + 1, 10)
+            target = (card && card.x < from - 0.5 ? card.x + card.width - view.width : from - view.width) + margin
+        }
+        presetScroll.glideTo(Math.max(view.originX, Math.min(end, target)), 240)
+    }
+
+    component EdgeButton: T.AbstractButton {
+        id: edge
+        property int direction: 1
+        y: 50
+        width: 28
+        height: 28
+        focusPolicy: Qt.NoFocus
+        hoverEnabled: true
+        Accessible.name: direction > 0 ? "Show the next presets" : "Show the previous presets"
+        onClicked: section.pagePresets(direction)
+        background: Rectangle {
+            radius: 14
+            color: edge.hovered ? theme.surface : theme.background
+            border.color: edge.hovered ? theme.secondary : theme.border
+            Behavior on color { ColorAnimation { duration: 150 } }
+        }
+        contentItem: Item {
+            Canvas {
+                anchors.centerIn: parent
+                width: 8
+                height: 12
+                property color ink: edge.hovered ? theme.foreground : theme.secondary
+                onInkChanged: requestPaint()
+                onPaint: {
+                    const ctx = getContext("2d")
+                    ctx.clearRect(0, 0, width, height)
+                    ctx.strokeStyle = ink
+                    ctx.lineWidth = 1.6
+                    ctx.lineCap = "round"
+                    ctx.lineJoin = "round"
+                    ctx.beginPath()
+                    if (edge.direction > 0) { ctx.moveTo(2, 1.5); ctx.lineTo(6.5, 6); ctx.lineTo(2, 10.5) }
+                    else { ctx.moveTo(6, 1.5); ctx.lineTo(1.5, 6); ctx.lineTo(6, 10.5) }
+                    ctx.stroke()
+                }
+            }
+        }
+        HoverHandler { cursorShape: Qt.PointingHandCursor }
+    }
 
     Item {
         width: parent.width
@@ -48,7 +107,7 @@ Column {
                 onClicked: section.app.applyPreset(index)
             }
             WheelScroll { id: presetScroll; flickable: presetList; horizontal: true }
-            WheelScroll { flickable: presetList; forwardOnly: true; outer: section.outerScroll; shiftScroll: presetScroll }
+            WheelScroll { flickable: presetList; forwardOnly: true; outer: section.outerScroll; shiftScroll: presetScroll; redirect: presetScroll }
         }
         // The fades show that more presets sit outside the row.
         Rectangle {
@@ -73,6 +132,20 @@ Column {
                 GradientStop { position: 0; color: "transparent" }
                 GradientStop { position: 1; color: theme.background }
             }
+        }
+        EdgeButton {
+            x: 2
+            direction: -1
+            visible: opacity > 0
+            opacity: presetList.contentX > presetList.originX + 1 ? 1 : 0
+            Behavior on opacity { NumberAnimation { duration: 150 } }
+        }
+        EdgeButton {
+            x: parent.width - width - 2
+            direction: 1
+            visible: opacity > 0
+            opacity: presetList.contentX < presetList.originX + presetList.contentWidth - presetList.width - 1 ? 1 : 0
+            Behavior on opacity { NumberAnimation { duration: 150 } }
         }
         Connections {
             target: section.app

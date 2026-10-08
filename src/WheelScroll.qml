@@ -13,6 +13,9 @@ WheelHandler {
     property var shiftScroll: null
     // A forwarding handler never moves its own view. Use it to pass vertical scrolls out of a horizontal list.
     property bool forwardOnly: false
+    // A vertical scroll moves this WheelScroll first. At the end of its range, the outer WheelScroll receives the scroll.
+    // Use it so that a plain mouse wheel scrolls a horizontal list.
+    property var redirect: null
     target: null
     orientation: horizontal && !forwardOnly ? Qt.Horizontal : Qt.Vertical
     acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
@@ -28,7 +31,8 @@ WheelHandler {
             event.accepted = false
             return
         }
-        event.accepted = (!forwardOnly && scroll(pixel, angle)) || (outer !== null && outer.scroll(pixel, angle)) || outer !== null
+        event.accepted = (redirect !== null && redirect.scroll(pixel, angle))
+            || (!forwardOnly && scroll(pixel, angle)) || (outer !== null && outer.scroll(pixel, angle)) || outer !== null
     }
 
     function scroll(pixel, angle) {
@@ -44,10 +48,19 @@ WheelHandler {
             if (horizontal) flickable.contentX = next
             else flickable.contentY = next
         } else {
+            glide.duration = 110
             glide.to = next
             glide.restart()
         }
         return true
+    }
+
+    // Animates the view to one position. A wheel step during the animation continues from that position.
+    function glideTo(position, duration) {
+        flickable.cancelFlick()
+        glide.duration = duration
+        glide.to = position
+        glide.restart()
     }
 
     property NumberAnimation glide: NumberAnimation {
