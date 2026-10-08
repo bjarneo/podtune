@@ -56,12 +56,14 @@ function tailPeak(list, count) {
     return peak
 }
 
+// Warmth and Presence set the APHEX drive and mix from 0 to 100 %. The device scale is a steep taper:
+// 50 % gives about 12 % of full strength, 80 % gives 28 %, and 90 % gives 40 %.
 // Warmth, Presence, and Leveling map the APHEX and compressor controls to one 0 to 100 scale.
 function macros(v) {
     var level = function(x) { return clamp(Math.round(x), 1, 100) }
     return {
-        W: num(v.bottom) ? level(num(v.bottomDrive) / 0.4) : 0,
-        P: num(v.exciter) ? level(num(v.exciterMix) / 0.4) : 0,
+        W: num(v.bottom) ? level(num(v.bottomDrive)) : 0,
+        P: num(v.exciter) ? level(num(v.exciterMix)) : 0,
         L: num(v.compressor) ? level((-10 - num(v.compThreshold)) / 0.2) : 0
     }
 }
@@ -70,11 +72,11 @@ function macroValues(key, m) {
     var n = {}
     if (key === "W") {
         n.bottom = m > 0 ? 1 : 0
-        if (m > 0) n.bottomDrive = Math.round(m * 0.4)
+        if (m > 0) n.bottomDrive = m
     } else if (key === "P") {
         n.exciter = m > 0 ? 1 : 0
         if (m > 0) {
-            n.exciterMix = Math.round(m * 0.4)
+            n.exciterMix = m
             n.exciterTune = Math.round((2000 + 22 * m) / 25) * 25
         }
     } else if (key === "L") {

@@ -69,6 +69,13 @@ These measurements describe signal level. They do not judge tone, room noise, or
 The playback path uses the PodMic USB output.
 The app reports an error if this output is unavailable.
 
+## Learn the controls
+
+Each control has an info icon next to its name.
+Point at the icon to read a short summary.
+Select the icon to open the guide at that topic.
+To open the full guide, select **Help**, then **Read the full guide**.
+
 ## Controls
 
 The main view groups the tone controls into three scales from 0 to 100.
@@ -117,6 +124,11 @@ The app has no firmware update or factory reset command.
 - **Warm podcast** adds bass and gentle compression.
 - **Clear calls** adds presence and stronger compression.
 - **Voice-over** uses moderate compression and restrained tone effects.
+- **Broadcast** adds deep bass and firm compression for a radio sound.
+- **Streaming** keeps an even level between loud and quiet moments.
+- **Bright** adds a crisp, airy tone for darker voices.
+- **Soft voice** lifts quiet speech and adds clarity.
+- **Singing** uses light compression to keep the dynamics.
 
 Factory presets retain the input gain, headphone volume, monitor settings, and existing gate parameters.
 To save the current readable hardware state, select **Save current…**.
@@ -145,7 +157,7 @@ Use **Trash** to move a take to the system trash.
 | `Ctrl+Shift+Z` | Redo a hardware change |
 | `Ctrl+R` | Read the hardware state again |
 | `?` | Show help |
-| `Esc` | Close the help or the **Advanced** panel |
+| `Esc` | Close the guide, the help, or the **Advanced** panel |
 | `Q` | Quit |
 
 ## Verify the app

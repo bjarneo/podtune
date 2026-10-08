@@ -6,16 +6,24 @@ Item {
     required property string controlKey
     required property string label
     property int weight: Font.Normal
+    property string topic: ""
     readonly property bool available: backend.supported[controlKey] === true
     width: parent ? parent.width : 0
     implicitHeight: 36
     opacity: available ? 1 : 0.45
 
     Txt {
+        id: name
         anchors.verticalCenter: parent.verticalCenter
         size: 13
         font.weight: control.weight
         text: control.label
+    }
+    InfoTip {
+        visible: control.topic.length > 0
+        x: name.implicitWidth + 6
+        anchors.verticalCenter: parent.verticalCenter
+        topic: control.topic
     }
     PodSwitch {
         anchors.right: parent.right

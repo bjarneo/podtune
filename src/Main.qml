@@ -96,6 +96,10 @@ ApplicationWindow {
         backend.savePreset(name)
         if (backend.presets.length > count) selectedPreset = backend.presets.length - 1
     }
+    function openGuide(topic) {
+        helpDialog.close()
+        guide.show(topic)
+    }
     function setMacro(key, m) {
         const changes = C.macroValues(key, m)
         for (const control in changes) {
@@ -133,7 +137,15 @@ ApplicationWindow {
     Shortcut { sequence: "Ctrl+Z"; enabled: !win.dialogOpen && !win.focusIsInteractive(true); context: Qt.ApplicationShortcut; onActivated: backend.undo() }
     Shortcut { sequence: "Ctrl+Shift+Z"; enabled: !win.dialogOpen && !win.focusIsInteractive(true); context: Qt.ApplicationShortcut; onActivated: backend.redo() }
     Shortcut { sequence: "Ctrl+R"; enabled: !win.dialogOpen && !win.focusIsInteractive(true); context: Qt.ApplicationShortcut; onActivated: backend.refresh() }
-    Shortcut { sequence: "Esc"; enabled: !win.dialogOpen && drawer.open; context: Qt.ApplicationShortcut; onActivated: drawer.open = false }
+    Shortcut {
+        sequence: "Esc"
+        enabled: !win.dialogOpen && (guide.open || drawer.open)
+        context: Qt.ApplicationShortcut
+        onActivated: {
+            if (guide.open) guide.open = false
+            else drawer.open = false
+        }
+    }
 
     Item {
         id: header
@@ -425,6 +437,11 @@ ApplicationWindow {
         anchors.fill: parent
         level: win.level
         onSavePreset: function(name) { win.savePreset(name) }
+    }
+
+    GuidePage {
+        id: guide
+        anchors.fill: parent
     }
 
     HelpDialog { id: helpDialog }

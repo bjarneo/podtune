@@ -98,5 +98,12 @@ Popup {
             wrapMode: Text.WordWrap
             text: "The app changes onboard settings. It reads each value back after a write. The noise gate enable command is not verified, so the app exposes only its verified parameters."
         }
+        Item { width: 1; height: 14 }
+        TextButton {
+            size: 13
+            text: "Read the full guide →"
+            Accessible.name: "Read the full guide"
+            onClicked: ApplicationWindow.window.openGuide("start")
+        }
     }
 }

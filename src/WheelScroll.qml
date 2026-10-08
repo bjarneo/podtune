@@ -9,12 +9,19 @@ WheelHandler {
     property bool horizontal: false
     property real step: 96
     property var outer: null
+    // With Shift held, this WheelScroll receives the scroll instead. Use it for a horizontal list.
+    property var shiftScroll: null
     // A forwarding handler never moves its own view. Use it to pass vertical scrolls out of a horizontal list.
     property bool forwardOnly: false
     target: null
     orientation: horizontal && !forwardOnly ? Qt.Horizontal : Qt.Vertical
     acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
     onWheel: function(event) {
+        if (shiftScroll !== null && (event.modifiers & Qt.ShiftModifier)) {
+            shiftScroll.scroll(event.pixelDelta.y || event.pixelDelta.x, event.angleDelta.y || event.angleDelta.x)
+            event.accepted = true
+            return
+        }
         const pixel = orientation === Qt.Horizontal ? event.pixelDelta.x : event.pixelDelta.y
         const angle = orientation === Qt.Horizontal ? event.angleDelta.x : event.angleDelta.y
         if (pixel === 0 && angle === 0) {

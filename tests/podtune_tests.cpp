@@ -82,7 +82,7 @@ private slots:
         QFile file(":/presets.json");
         QVERIFY(file.open(QIODevice::ReadOnly));
         const auto presets = QJsonDocument::fromJson(file.readAll()).array();
-        QCOMPARE(presets.size(), 4);
+        QCOMPARE(presets.size(), 9);
         for (const auto &entry : presets) {
             const auto values = entry.toObject().value("values").toObject();
             QVERIFY(!values.contains("gain"));

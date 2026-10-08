@@ -18,7 +18,12 @@ Item {
     Item {
         width: parent.width
         height: 20
-        SectionLabel { anchors.verticalCenter: parent.verticalCenter; text: "Voice test" }
+        Row {
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 6
+            SectionLabel { anchors.verticalCenter: parent.verticalCenter; text: "Voice test" }
+            InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "record" }
+        }
         Row {
             readonly property var chip: audio.recording
                 ? { dot: theme.high, text: "Recording · " + section.app.clock(audio.duration), blink: Math.floor(audio.duration) % 2 === 0 ? 1 : 0.35 }
@@ -53,7 +58,11 @@ Item {
             width: parent.width - 38
             height: 56.09
 
-            Txt { size: 11.5; color: theme.secondary; text: "Peak" }
+            Row {
+                spacing: 6
+                Txt { id: peakLabel; size: 11.5; color: theme.secondary; text: "Peak" }
+                InfoTip { anchors.verticalCenter: peakLabel.verticalCenter; topic: "meter" }
+            }
             Txt {
                 id: peakValue
                 y: 22.09
@@ -135,8 +144,9 @@ Item {
             width: parent.width
             height: 26
             Txt { id: gainLabel; anchors.verticalCenter: parent.verticalCenter; size: 14; font.weight: Font.Medium; text: "Input gain" }
+            InfoTip { id: gainInfo; x: gainLabel.implicitWidth + 6; anchors.verticalCenter: parent.verticalCenter; topic: "gain" }
             Txt {
-                x: gainLabel.implicitWidth + 10
+                x: gainInfo.x + gainInfo.width + 10
                 anchors.verticalCenter: parent.verticalCenter
                 size: 12.5
                 mono: true
@@ -284,8 +294,9 @@ Item {
         Row {
             anchors.verticalCenter: parent.verticalCenter
             spacing: 8
-            SectionLabel { text: "Takes" }
-            Txt { size: 11; mono: true; color: theme.secondary; text: String(audio.takes.length) }
+            SectionLabel { anchors.verticalCenter: parent.verticalCenter; text: "Takes" }
+            Txt { anchors.verticalCenter: parent.verticalCenter; size: 11; mono: true; color: theme.secondary; text: String(audio.takes.length) }
+            InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "takes" }
         }
         TextButton {
             anchors.right: parent.right

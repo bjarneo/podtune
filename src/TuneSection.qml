@@ -12,7 +12,12 @@ Column {
     Item {
         width: parent.width
         height: 20
-        SectionLabel { anchors.verticalCenter: parent.verticalCenter; text: "Presets" }
+        Row {
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 6
+            SectionLabel { anchors.verticalCenter: parent.verticalCenter; text: "Presets" }
+            InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "presets" }
+        }
         TextButton {
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
@@ -22,25 +27,59 @@ Column {
         }
     }
     Item { width: 1; height: 12 }
-    ListView {
-        id: presetList
+    Item {
         width: parent.width
         height: 128
-        orientation: ListView.Horizontal
-        spacing: 10
-        model: backend.presets
-        interactive: contentWidth > width
-        acceptedButtons: Qt.NoButton
-        clip: interactive
-        boundsBehavior: Flickable.StopAtBounds
-        delegate: PresetCard {
-            selected: index === section.app.selectedPreset
-            edited: section.app.edited
-            enabled: !backend.busy
-            onClicked: section.app.applyPreset(index)
+
+        ListView {
+            id: presetList
+            anchors.fill: parent
+            orientation: ListView.Horizontal
+            spacing: 10
+            model: backend.presets
+            interactive: contentWidth > width
+            acceptedButtons: Qt.NoButton
+            clip: interactive
+            boundsBehavior: Flickable.StopAtBounds
+            delegate: PresetCard {
+                selected: index === section.app.selectedPreset
+                edited: section.app.edited
+                enabled: !backend.busy
+                onClicked: section.app.applyPreset(index)
+            }
+            WheelScroll { id: presetScroll; flickable: presetList; horizontal: true }
+            WheelScroll { flickable: presetList; forwardOnly: true; outer: section.outerScroll; shiftScroll: presetScroll }
         }
-        WheelScroll { flickable: presetList; horizontal: true }
-        WheelScroll { flickable: presetList; forwardOnly: true; outer: section.outerScroll }
+        // The fades show that more presets sit outside the row.
+        Rectangle {
+            width: 32
+            height: parent.height
+            opacity: presetList.contentX > presetList.originX + 1 ? 1 : 0
+            Behavior on opacity { NumberAnimation { duration: 150 } }
+            gradient: Gradient {
+                orientation: Gradient.Horizontal
+                GradientStop { position: 0; color: theme.background }
+                GradientStop { position: 1; color: "transparent" }
+            }
+        }
+        Rectangle {
+            anchors.right: parent.right
+            width: 32
+            height: parent.height
+            opacity: presetList.contentX < presetList.originX + presetList.contentWidth - presetList.width - 1 ? 1 : 0
+            Behavior on opacity { NumberAnimation { duration: 150 } }
+            gradient: Gradient {
+                orientation: Gradient.Horizontal
+                GradientStop { position: 0; color: "transparent" }
+                GradientStop { position: 1; color: theme.background }
+            }
+        }
+        Connections {
+            target: section.app
+            function onSelectedPresetChanged() {
+                if (section.app.selectedPreset >= 0) presetList.positionViewAtIndex(section.app.selectedPreset, ListView.Contain)
+            }
+        }
     }
     Item { width: 1; height: 34 }
     Item {
@@ -72,6 +111,7 @@ Column {
             ToneRow {
                 width: parent.width
                 title: "Warmth"
+                topic: "warmth"
                 subtitle: "Adds low-end body"
                 detailLabel: "Big Bottom"
                 detail: C.num(section.values.bottom) > 0 ? "drive " + Math.round(C.num(section.values.bottomDrive)) + " %" : "off"
@@ -84,6 +124,7 @@ Column {
                 width: parent.width
                 divided: true
                 title: "Presence"
+                topic: "presence"
                 subtitle: "Adds clarity to speech"
                 detailLabel: "Aural Exciter"
                 detail: C.num(section.values.exciter) > 0
@@ -98,6 +139,7 @@ Column {
                 width: parent.width
                 divided: true
                 title: "Leveling"
+                topic: "leveling"
                 subtitle: "Keeps speech consistent"
                 detailLabel: "Compressor"
                 detail: C.num(section.values.compressor) > 0
@@ -114,7 +156,12 @@ Column {
     Item {
         width: parent.width
         height: 20
-        SectionLabel { anchors.verticalCenter: parent.verticalCenter; text: "Headphones" }
+        Row {
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 6
+            SectionLabel { anchors.verticalCenter: parent.verticalCenter; text: "Headphones" }
+            InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "headphones" }
+        }
     }
     Item { width: 1; height: 12 }
     Rectangle {

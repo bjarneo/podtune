@@ -145,13 +145,17 @@ Item {
                 width: body.width - 48
 
                 DrawerSection {
-                    Txt { size: 14; font.weight: Font.DemiBold; text: "Input" }
+                    Row {
+                        spacing: 6
+                        Txt { anchors.verticalCenter: parent.verticalCenter; size: 14; font.weight: Font.DemiBold; text: "Input" }
+                        InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "gain" }
+                    }
                     Item { width: 1; height: 8 }
                     ValueControl { controlKey: "gain"; label: "Input gain" }
                     Row {
                         spacing: 24
-                        ToggleControl { width: (sections.width - 24) / 2; controlKey: "hpf"; label: "High-pass · 60 Hz" }
-                        ToggleControl { width: (sections.width - 24) / 2; controlKey: "mute"; label: "Mute" }
+                        ToggleControl { width: (sections.width - 24) / 2; controlKey: "hpf"; label: "High-pass · 60 Hz"; topic: "hpf" }
+                        ToggleControl { width: (sections.width - 24) / 2; controlKey: "mute"; label: "Mute"; topic: "mute" }
                     }
                 }
 
@@ -164,6 +168,7 @@ Item {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: 8
                             Txt { anchors.verticalCenter: parent.verticalCenter; size: 14; font.weight: Font.DemiBold; text: "Compressor" }
+                            InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "compressor" }
                             Pill { anchors.verticalCenter: parent.verticalCenter; text: "Leveling" }
                         }
                         Row {
@@ -236,7 +241,8 @@ Item {
                     Row {
                         height: 19.6
                         spacing: 8
-                        Txt { size: 14; font.weight: Font.DemiBold; text: "APHEX tone" }
+                        Txt { anchors.verticalCenter: parent.verticalCenter; size: 14; font.weight: Font.DemiBold; text: "APHEX tone" }
+                        InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "aphex" }
                         Pill { anchors.verticalCenter: parent.verticalCenter; text: "Warmth" }
                         Pill { anchors.verticalCenter: parent.verticalCenter; text: "Presence" }
                     }
@@ -266,7 +272,11 @@ Item {
                 }
 
                 DrawerSection {
-                    Txt { size: 14; font.weight: Font.DemiBold; text: "Noise gate" }
+                    Row {
+                        spacing: 6
+                        Txt { anchors.verticalCenter: parent.verticalCenter; size: 14; font.weight: Font.DemiBold; text: "Noise gate" }
+                        InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "gate" }
+                    }
                     Item { width: 1; height: 6 }
                     Txt { width: parent.width; size: 12; color: theme.secondary; wrapMode: Text.WordWrap; text: "The gate has no verified independent enable control. These parameters adjust its onboard behavior." }
                     Item { width: 1; height: 6 }
@@ -279,11 +289,15 @@ Item {
                 }
 
                 DrawerSection {
-                    Txt { size: 14; font.weight: Font.DemiBold; text: "Headphones" }
+                    Row {
+                        spacing: 6
+                        Txt { anchors.verticalCenter: parent.verticalCenter; size: 14; font.weight: Font.DemiBold; text: "Headphones" }
+                        InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "headphones" }
+                    }
                     Item { width: 1; height: 4 }
                     ToggleControl { controlKey: "directMonitor"; label: "Direct monitor" }
                     ValueControl { controlKey: "headphones"; label: "Computer playback volume" }
-                    ValueControl { controlKey: "monitorMix"; label: "Monitor mix · raw device value" }
+                    ValueControl { controlKey: "monitorMix"; label: "Monitor mix · raw device value"; topic: "monitorMix" }
                     Item { width: 1; height: 6 }
                     Txt { width: parent.width; size: 12; color: theme.secondary; wrapMode: Text.WordWrap; text: "The monitor mix direction depends on the device. Compare both ends at a low headphone volume." }
                 }
@@ -294,6 +308,7 @@ Item {
                         width: parent.width
                         height: 19.6
                         Txt { id: levelsTitle; size: 14; font.weight: Font.DemiBold; text: "Levels" }
+                        InfoTip { x: levelsTitle.implicitWidth + 6; anchors.verticalCenter: levelsTitle.verticalCenter; topic: "meter" }
                         Txt {
                             anchors.right: parent.right
                             anchors.baseline: levelsTitle.baseline
@@ -338,7 +353,11 @@ Item {
                 DrawerSection {
                     id: saveSection
                     bottomGap: 16
-                    Txt { size: 14; font.weight: Font.DemiBold; text: "Save preset" }
+                    Row {
+                        spacing: 6
+                        Txt { anchors.verticalCenter: parent.verticalCenter; size: 14; font.weight: Font.DemiBold; text: "Save preset" }
+                        InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "save" }
+                    }
                     Item { width: 1; height: 10 }
                     Item {
                         width: parent.width
@@ -404,7 +423,11 @@ Item {
                 DrawerSection {
                     divided: false
                     bottomGap: 0
-                    Txt { size: 14; font.weight: Font.DemiBold; text: "Device" }
+                    Row {
+                        spacing: 6
+                        Txt { anchors.verticalCenter: parent.verticalCenter; size: 14; font.weight: Font.DemiBold; text: "Device" }
+                        InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: "device" }
+                    }
                     Item { width: 1; height: 6 }
                     Txt { width: parent.width; size: 13; wrapMode: Text.WordWrap; text: backend.identity }
                     Item { width: 1; height: 4 }

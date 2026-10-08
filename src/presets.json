@@ -9,18 +9,48 @@
     "name": "Warm podcast",
     "description": "Fuller lows and gentle voice compression.",
     "factory": true,
-    "values": {"hpf": 1, "compressor": 1, "compThreshold": -22, "compRatio": 2.5, "compAttack": 5, "compRelease": 110, "compGain": 2, "exciter": 1, "exciterMix": 12, "exciterTune": 2600, "bottom": 1, "bottomDrive": 20}
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -26, "compRatio": 3, "compAttack": 5, "compRelease": 110, "compGain": 4, "exciter": 1, "exciterMix": 70, "exciterTune": 2600, "bottom": 1, "bottomDrive": 88}
   },
   {
     "name": "Clear calls",
     "description": "More presence and a controlled voice level.",
     "factory": true,
-    "values": {"hpf": 1, "compressor": 1, "compThreshold": -26, "compRatio": 3, "compAttack": 2, "compRelease": 80, "compGain": 2, "exciter": 1, "exciterMix": 22, "exciterTune": 3200, "bottom": 0}
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -30, "compRatio": 4, "compAttack": 2, "compRelease": 80, "compGain": 6, "exciter": 1, "exciterMix": 90, "exciterTune": 3400, "bottom": 0}
   },
   {
     "name": "Voice-over",
     "description": "Moderate compression with restrained tone effects.",
     "factory": true,
-    "values": {"hpf": 1, "compressor": 1, "compThreshold": -20, "compRatio": 2, "compAttack": 7, "compRelease": 150, "compGain": 1, "exciter": 1, "exciterMix": 8, "exciterTune": 2400, "bottom": 1, "bottomDrive": 10}
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -24, "compRatio": 2.5, "compAttack": 7, "compRelease": 150, "compGain": 3, "exciter": 1, "exciterMix": 80, "exciterTune": 2800, "bottom": 1, "bottomDrive": 80}
+  },
+  {
+    "name": "Broadcast",
+    "description": "Deep radio sound with firm compression.",
+    "factory": true,
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -32, "compRatio": 4.5, "compAttack": 1, "compRelease": 60, "compGain": 7, "exciter": 1, "exciterMix": 75, "exciterTune": 3000, "bottom": 1, "bottomDrive": 95}
+  },
+  {
+    "name": "Streaming",
+    "description": "Even level for loud and quiet moments.",
+    "factory": true,
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -34, "compRatio": 4.5, "compAttack": 1, "compRelease": 120, "compGain": 8, "exciter": 1, "exciterMix": 85, "exciterTune": 3800, "bottom": 1, "bottomDrive": 70}
+  },
+  {
+    "name": "Bright",
+    "description": "Crisp, airy tone for darker voices.",
+    "factory": true,
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -20, "compRatio": 2, "compAttack": 5, "compRelease": 120, "compGain": 2, "exciter": 1, "exciterMix": 95, "exciterTune": 4400, "bottom": 0}
+  },
+  {
+    "name": "Soft voice",
+    "description": "Lifts quiet speech and adds clarity.",
+    "factory": true,
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -38, "compRatio": 3, "compAttack": 3, "compRelease": 150, "compGain": 9, "exciter": 1, "exciterMix": 85, "exciterTune": 3600, "bottom": 1, "bottomDrive": 60}
+  },
+  {
+    "name": "Singing",
+    "description": "Light compression that keeps the dynamics.",
+    "factory": true,
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -16, "compRatio": 1.8, "compAttack": 10, "compRelease": 200, "compGain": 1, "exciter": 1, "exciterMix": 65, "exciterTune": 3200, "bottom": 1, "bottomDrive": 55}
   }
 ]

@@ -5,6 +5,7 @@ Column {
     id: control
     required property string controlKey
     required property string label
+    property string topic: ""
     readonly property var spec: C.CTRL[controlKey]
     readonly property bool available: backend.supported[controlKey] === true
     readonly property var current: backend.previewValues[controlKey]
@@ -18,6 +19,12 @@ Column {
         width: parent.width
         height: name.height
         Txt { id: name; size: 13; text: control.label }
+        InfoTip {
+            visible: control.topic.length > 0
+            x: name.implicitWidth + 6
+            anchors.verticalCenter: name.verticalCenter
+            topic: control.topic
+        }
         Txt {
             anchors.right: parent.right
             anchors.baseline: name.baseline

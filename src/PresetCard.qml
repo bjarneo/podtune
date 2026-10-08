@@ -18,6 +18,7 @@ T.AbstractButton {
     ToolTip.visible: hovered && modelData.description !== undefined
     ToolTip.delay: 700
     ToolTip.text: modelData.description || ""
+    onActiveFocusChanged: if (activeFocus && ListView.view) ListView.view.positionViewAtIndex(index, ListView.Contain)
 
     background: Rectangle {
         radius: 8

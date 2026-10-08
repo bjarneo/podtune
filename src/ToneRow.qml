@@ -5,6 +5,7 @@ import QtQuick.Templates as T
 Item {
     id: row
     property string title
+    property string topic
     property string subtitle
     property string detailLabel
     property string detail
@@ -32,7 +33,18 @@ Item {
             y: row.stacked ? 0 : Math.round(box.height / 2) - Math.round(41.5 / 2)
             width: row.stacked ? box.width - 80 : 148
             spacing: 3
-            Txt { width: parent.width; size: 15; font.weight: Font.DemiBold; elide: Text.ElideRight; text: row.title }
+            Row {
+                spacing: 6
+                Txt {
+                    width: Math.min(implicitWidth, titles.width - 20)
+                    anchors.verticalCenter: parent.verticalCenter
+                    size: 15
+                    font.weight: Font.DemiBold
+                    elide: Text.ElideRight
+                    text: row.title
+                }
+                InfoTip { anchors.verticalCenter: parent.verticalCenter; topic: row.topic; visible: row.topic.length > 0 }
+            }
             Txt { width: parent.width; size: 12.5; color: theme.secondary; elide: Text.ElideRight; text: row.subtitle }
         }
 
