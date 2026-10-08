@@ -1,0 +1,193 @@
+@font-face { font-family: "Geist"; src: url("assets/fonts/Geist-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("assets/fonts/Geist-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
+@font-face { font-family: "Geist"; src: url("assets/fonts/Geist-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("assets/fonts/GeistMono-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+
+/* The palettes are the app's own Dark, Light, and observed Omarchy themes. */
+:root, [data-theme="dark"] {
+  --bg: #17191c; --sf: #1d1f23; --fg: #f0f1f3; --fg2: #b8b9bb; --bd: #3e4043; --line: #2c2e32;
+  --ac: #d0b675; --acf: #101214; --tint: #2a2925; --dim: #4a4c50; --shadow: rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  --bg: #f4f5f7; --sf: #fbfcfe; --fg: #20242a; --fg2: #575a5f; --bd: #cecfd2; --line: #e1e2e5;
+  --ac: #765b1f; --acf: #ffffff; --tint: #e9e4d8; --dim: #c4c6ca; --shadow: rgba(32, 36, 42, 0.18);
+  color-scheme: light;
+}
+[data-theme="omarchy"] {
+  --bg: #0b170e; --sf: #0e1d11; --fg: #dcd6bc; --fg2: #a6a48f; --bd: #31392d; --line: #1d2a1f;
+  --ac: #64a472; --acf: #101214; --tint: #15291a; --dim: #3d4739; --shadow: rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1.0625rem/1.6 "Geist", "Liberation Sans", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1), color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  caret-color: var(--ac);
+  scrollbar-color: var(--bd) var(--bg);
+}
+::selection { background: var(--ac); color: var(--acf); }
+img, video, svg { display: block; max-width: 100%; }
+a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+:focus-visible { outline: 2px solid var(--ac); outline-offset: 3px; border-radius: 6px; }
+h1, h2 { margin: 0; font-weight: 600; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+.num, code, pre { font-family: "Geist Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+.num { font-size: 0.94em; letter-spacing: -0.01em; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; left: 16px; top: -48px; z-index: 20; padding: 8px 14px; border-radius: 8px; background: var(--ac); color: var(--acf); font-weight: 600; text-decoration: none; }
+.skip:focus { top: 12px; }
+
+.wrap { width: min(1200px, 100% - 48px); margin-inline: auto; }
+
+/* Header bar */
+.bar { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--bd); transition: background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.45s; }
+.bar-inner { width: min(1200px, 100% - 48px); margin-inline: auto; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }
+.mark { width: 28px; height: 28px; flex: none; }
+.m-fill { fill: var(--ac); transition: fill 0.45s; }
+.m-point { fill: var(--fg); transition: fill 0.45s; }
+.m-rest { fill: var(--dim); transition: fill 0.45s; }
+.nav { display: flex; align-items: center; gap: 24px; font-size: 0.9375rem; }
+.nav > a:not(.button) { color: var(--fg2); text-decoration: none; }
+.nav > a:not(.button):hover { color: var(--fg); }
+
+/* Buttons */
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 46px; padding: 0 20px; border-radius: 8px; font-size: 0.9375rem; font-weight: 600; text-decoration: none; border: 1px solid transparent; transition: background-color 0.2s, border-color 0.2s, color 0.2s, filter 0.2s; white-space: nowrap; }
+.button.small { height: 34px; padding: 0 14px; font-size: 0.875rem; font-weight: 500; gap: 8px; }
+.button.primary { background: var(--ac); color: var(--acf); }
+.button.primary:hover { filter: brightness(1.07); }
+.button.primary:active { filter: brightness(0.9); }
+.button.ghost { border-color: var(--bd); color: var(--fg); }
+.button.ghost:hover { background: var(--sf); border-color: var(--fg2); }
+.gh { width: 16px; height: 16px; fill: currentColor; }
+
+/* Hero */
+.hero { padding: 24px 0 24px; }
+.hero-head { margin-bottom: 20px; }
+.hero h1 { font-size: clamp(2.25rem, 0.9rem + 2.9vw, 3.4rem); line-height: 1.05; letter-spacing: -0.035em; }
+.hero-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 20px 48px; margin-top: 14px; }
+.lede { max-width: 64ch; color: var(--fg2); font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* The demo is the app window itself, cropped to its edge, so the page border is its only frame. */
+.demo { position: relative; margin: 0 auto; width: min(100%, max(640px, calc((100svh - 232px) * 1436 / 964))); }
+.demo video { width: 100%; aspect-ratio: 1436 / 964; object-fit: cover; border-radius: 12px; border: 1px solid var(--bd); background: var(--sf); box-shadow: 0 28px 48px -28px var(--shadow), 0 2px 6px -2px var(--shadow); }
+.shots figcaption { margin-top: 14px; font-size: 0.8125rem; color: var(--fg2); text-align: center; }
+.demo-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 12px; }
+.demo-bar figcaption { font-size: 0.8125rem; color: var(--fg2); }
+.demo-toggle { display: inline-flex; align-items: center; gap: 8px; height: 30px; padding: 0 12px; border: 1px solid var(--bd); border-radius: 7px; background: transparent; color: var(--fg2); font: 500 0.8125rem "Geist", sans-serif; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
+.demo-toggle:hover { color: var(--fg); border-color: var(--fg2); }
+.demo-toggle svg { width: 12px; height: 12px; fill: currentColor; }
+.demo-toggle .i-play { display: none; }
+.demo-toggle[data-paused="true"] .i-play { display: block; }
+.demo-toggle[data-paused="true"] .i-pause { display: none; }
+
+/* Themes: the signature interaction re-themes the whole page */
+.themes { padding: 120px 0 0; }
+.themes-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px 48px; margin-bottom: 36px; }
+.themes-head h2, .feature h2, .verified h2, .install h2 { font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem); line-height: 1.12; letter-spacing: -0.028em; }
+.themes-head p { margin-top: 14px; max-width: 60ch; color: var(--fg2); }
+.seg { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--bd); border-radius: 10px; }
+.seg button { height: 36px; padding: 0 16px; border: 0; border-radius: 7px; background: transparent; color: var(--fg2); font: 500 0.9375rem "Geist", sans-serif; cursor: pointer; transition: background-color 0.2s, color 0.2s; }
+.seg button:hover { color: var(--fg); }
+.seg button[aria-checked="true"] { background: var(--line); color: var(--fg); }
+.shot { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--bd); box-shadow: 0 24px 44px -26px var(--shadow); }
+/* Each themed figure holds one image per theme. The selected theme's image resolves out of a soft blur. */
+.themed { position: relative; margin: 0; }
+.themed > .t-dark, .themed > .t-light, .themed > .t-omarchy { opacity: 0; visibility: hidden; transform: scale(0.985); filter: blur(6px); transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.6s; }
+.themed > .t-light, .themed > .t-omarchy { position: absolute; inset: 0 0 auto 0; }
+.themed > picture { display: block; }
+.only-omarchy { display: none; }
+[data-theme="omarchy"] .only-omarchy { display: inline; }
+[data-theme="dark"] .themed > .t-dark, [data-theme="light"] .themed > .t-light, [data-theme="omarchy"] .themed > .t-omarchy { opacity: 1; visibility: visible; transform: none; filter: none; transition-delay: 0s; }
+
+/* A tick scale divider, drawn like the app's tone sliders */
+.ticks { height: 34px; margin: 120px 0 0; background: repeating-linear-gradient(90deg, var(--bd) 0 2px, transparent 2px 14px) center / 100% 10px no-repeat; position: relative; }
+.ticks::before { content: ""; position: absolute; left: 0; top: 7px; width: 62%; height: 20px; background: repeating-linear-gradient(90deg, var(--ac) 0 2px, transparent 2px 14px); }
+.ticks::after { content: ""; position: absolute; left: 62%; top: 2px; width: 2px; height: 30px; border-radius: 1px; background: var(--fg); }
+
+/* Features */
+.features { padding: 40px 0 0; }
+.feature { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: 40px 72px; padding-top: 96px; }
+.feature.flip .feature-copy { order: 2; }
+.feature-copy p { margin-top: 16px; max-width: 52ch; color: var(--fg2); }
+.feature-copy .list { color: var(--fg); }
+.feature-shot { margin: 0; }
+.feature-shot img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--bd); background: var(--sf); }
+.feature-shot.tall { max-width: 460px; justify-self: center; }
+.note { margin-top: 56px; color: var(--fg2); font-size: 0.875rem; }
+.feature.flip .feature-shot.tall { justify-self: center; }
+
+/* Verified table */
+.verified { padding: 140px 0 0; }
+.verified-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px 72px; align-items: start; }
+.verified p { margin-top: 16px; max-width: 52ch; color: var(--fg2); }
+.verified .quiet { font-size: 0.9375rem; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9375rem; }
+th { text-align: left; font-weight: 500; font-size: 0.8125rem; color: var(--fg2); padding: 0 0 10px; border-bottom: 1px solid var(--bd); }
+td { padding: 13px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+td:first-child { padding-right: 24px; white-space: nowrap; }
+td:last-child { color: var(--fg2); }
+td.num, td .num { color: var(--fg); }
+
+/* Install */
+.install { padding: 140px 0 120px; }
+.install-inner { max-width: 760px; }
+.steps { margin: 28px 0 0; padding: 0; list-style: none; counter-reset: step; display: grid; gap: 28px; }
+.steps li { counter-increment: step; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 8px 12px; }
+.steps li::before { content: counter(step); font: 500 0.875rem/28px "Geist Mono", monospace; color: var(--ac); width: 28px; height: 28px; text-align: center; border: 1px solid var(--bd); border-radius: 50%; }
+.steps li > * { grid-column: 2; }
+.steps li > p { grid-row: 1; padding-top: 2px; }
+.code { position: relative; margin-top: 10px; border: 1px solid var(--bd); border-radius: 10px; background: var(--sf); }
+.code pre { margin: 0; padding: 16px 92px 16px 18px; overflow-x: auto; font-size: 0.9375rem; line-height: 1.5; scrollbar-width: thin; }
+.copy { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); height: 32px; padding: 0 12px; border: 1px solid var(--bd); border-radius: 7px; background: var(--bg); color: var(--fg2); font: 500 0.8125rem "Geist", sans-serif; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
+.copy:hover { color: var(--fg); border-color: var(--fg2); }
+.copy[data-copied] { color: var(--ac); border-color: var(--ac); }
+.install .quiet { margin-top: 28px; color: var(--fg2); font-size: 0.9375rem; }
+code.inline { font-size: 0.9em; padding: 2px 6px; border-radius: 5px; background: var(--sf); border: 1px solid var(--line); color: var(--fg); }
+
+/* Footer */
+.foot { border-top: 1px solid var(--bd); padding: 36px 0 44px; }
+.foot-inner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px 40px; }
+.foot p { color: var(--fg2); font-size: 0.875rem; max-width: 70ch; }
+.foot p a { color: var(--fg); }
+.foot-link { font-size: 0.9375rem; font-weight: 500; text-decoration: none; }
+.foot-link:hover { color: var(--ac); }
+
+@media (max-width: 900px) {
+  .hero { padding-top: 40px; }
+  .hero-row { grid-template-columns: minmax(0, 1fr); }
+  .feature, .verified-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .feature.flip .feature-copy { order: 0; }
+  .feature { padding-top: 80px; }
+  .themes, .verified { padding-top: 96px; }
+  .install { padding: 96px 0 88px; }
+  .ticks { margin-top: 96px; }
+  .foot-inner { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .wrap, .bar-inner { width: calc(100% - 32px); }
+  .nav { gap: 16px; }
+  .nav > a[href="#features"] { display: none; }
+  .actions { width: 100%; }
+  .actions .button { flex: 1 1 auto; }
+  .demo { width: 100%; }
+  .demo video { border-radius: 10px; aspect-ratio: 764 / 964; }
+  .seg { width: 100%; }
+  .seg button { flex: 1; padding: 0 8px; }
+  td:first-child { white-space: normal; }
+  .code pre { font-size: 0.8125rem; padding-right: 84px; white-space: pre-wrap; overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; }
+  .themed > * { transform: none; filter: none; }
+}

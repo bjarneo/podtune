@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     app.setOrganizationName("podtune");
     app.setApplicationVersion("0.1.0");
     app.setDesktopFileName("podtune");
-    app.setWindowIcon(QIcon("qrc:/podtune.svg"));
+    app.setWindowIcon(QIcon(":/podtune.svg"));
     QCommandLineParser parser;
     parser.setApplicationDescription("Tune the RØDE PodMic USB and test your voice.");
     parser.addHelpOption(); parser.addVersionOption();

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Podtune · Tune your RØDE PodMic USB on Linux</title>
+  <meta name="description" content="Podtune is a native Linux app for the RØDE PodMic USB. It sets the onboard compressor, APHEX effects, and gain, and records voice tests so that you can compare presets.">
+  <meta name="theme-color" content="#17191c">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Podtune · Tune your RØDE PodMic USB on Linux">
+  <meta property="og:description" content="Presets, three tone scales, a live level meter, and voice tests in one native Qt 6 app.">
+  <meta property="og:url" content="https://bjarneo.github.io/podtune/">
+  <meta property="og:image" content="https://bjarneo.github.io/podtune/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://bjarneo.github.io/podtune/assets/og-image.png">
+  <link rel="icon" type="image/svg+xml" href="assets/podtune-icon.svg">
+  <link rel="preload" href="assets/fonts/Geist-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/Geist-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var theme = null;
+      try { theme = localStorage.getItem("podtune-theme"); } catch (e) {}
+      var asked = new URLSearchParams(location.search).get("theme");
+      if (asked) theme = asked;
+      if (!theme && window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) theme = "light";
+      if (theme === "light" || theme === "omarchy" || theme === "dark") document.documentElement.dataset.theme = theme;
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="brand" href="#top" aria-label="Podtune home">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect class="m-fill" x="7" y="23" width="6" height="18" rx="3"/><rect class="m-fill" x="18" y="23" width="6" height="18" rx="3"/><rect class="m-fill" x="29" y="23" width="6" height="18" rx="3"/><rect class="m-point" x="40" y="11" width="6" height="42" rx="3"/><rect class="m-rest" x="51" y="28" width="6" height="8" rx="3"/></svg>
+        <span>Podtune</span>
+      </a>
+      <nav class="nav" aria-label="Page">
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a class="button ghost small" href="https://github.com/bjarneo/podtune">
+          <svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-head">
+        <h1 id="hero-title">Tune your RØDE PodMic USB on Linux.</h1>
+        <div class="hero-row">
+          <p class="lede">Podtune sets the microphone’s onboard compressor, APHEX effects, and gain. Then it records short voice tests so that you can hear the difference.</p>
+          <div class="actions">
+          <a class="button primary" href="https://github.com/bjarneo/podtune">
+            <svg class="gh" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            Get Podtune on GitHub
+          </a>
+          <a class="button ghost" href="#install">Install</a>
+          </div>
+        </div>
+      </div>
+      <div class="wrap">
+        <figure class="demo">
+          <video id="demo" muted loop playsinline preload="metadata" poster="assets/demo/poster-dark.webp" aria-label="Podtune demo: a level check, two presets, a Warmth change, a voice test, the Advanced panel, and the theme switch">
+            <source src="assets/demo/demo-dark.mp4" type="video/mp4">
+          </video>
+          <div class="demo-bar">
+            <figcaption>Demo with sample data, rendered from the app.</figcaption>
+            <button class="demo-toggle" type="button" data-paused="false">
+              <svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><rect x="4" y="3" width="2.6" height="10" rx="1"/><rect x="9.4" y="3" width="2.6" height="10" rx="1"/></svg>
+              <svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3.2v9.6c0 .6.66.97 1.17.65l7.2-4.8a.77.77 0 000-1.3l-7.2-4.8A.77.77 0 005 3.2z"/></svg>
+              <span class="toggle-label">Pause</span>
+            </button>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="themes" aria-labelledby="themes-title">
+      <div class="wrap themes-head">
+        <div>
+          <h2 id="themes-title">Follows your desktop</h2>
+          <p>Choose Dark, Light, or Omarchy. Omarchy mode uses the colors of your current theme and updates when you switch. Try it on this page.</p>
+        </div>
+        <div class="seg" role="radiogroup" aria-label="Theme">
+          <button type="button" role="radio" data-theme-choice="dark">Dark</button>
+          <button type="button" role="radio" data-theme-choice="light">Light</button>
+          <button type="button" role="radio" data-theme-choice="omarchy">Omarchy</button>
+        </div>
+      </div>
+      <div class="wrap">
+        <figure class="shots themed">
+          <img class="shot t-dark" src="assets/shots/main-dark.webp" width="2560" height="1720" alt="Podtune with Warm podcast active and a live level check, shown in the selected theme" loading="lazy" decoding="async">
+          <img class="shot t-light" src="assets/shots/main-light.webp" width="2560" height="1720" alt="" loading="lazy" decoding="async">
+          <img class="shot t-omarchy" src="assets/shots/main-omarchy.webp" width="2560" height="1720" alt="" loading="lazy" decoding="async">
+          <figcaption>Screenshots use sample data.<span class="only-omarchy"> The Omarchy view shows one example theme. Your colors follow your own theme.</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="wrap" aria-hidden="true"><div class="ticks"></div></div>
+
+    <section class="features" id="features" aria-label="Features">
+      <article class="feature wrap">
+        <div class="feature-copy">
+          <h2>Presets you can hear</h2>
+          <p>Nine presets set the compressor, Big Bottom, Aural Exciter, and high-pass filter in one step. A card shows Active while the hardware matches it, and Edited after you change a control.</p>
+          <p class="list">Natural, Warm podcast, Clear calls, Voice-over, Broadcast, Streaming, Bright, Soft voice, and Singing.</p>
+        </div>
+        <figure class="feature-shot themed"><img class="t-dark" src="assets/shots/presets-dark.webp" width="1504" height="400" alt="The preset row with Warm podcast active" loading="lazy" decoding="async"><img class="t-light" src="assets/shots/presets-light.webp" width="1504" height="400" alt="" loading="lazy" decoding="async"><img class="t-omarchy" src="assets/shots/presets-omarchy.webp" width="1504" height="400" alt="" loading="lazy" decoding="async"></figure>
+      </article>
+
+      <article class="feature wrap flip">
+        <div class="feature-copy">
+          <h2>Three scales for tone</h2>
+          <p>Warmth drives APHEX Big Bottom. Presence drives the Aural Exciter. Leveling sets the compressor threshold, ratio, and makeup gain together. Each scale shows the hardware values it sets, so nothing is hidden.</p>
+        </div>
+        <figure class="feature-shot themed"><img class="t-dark" src="assets/shots/tone-dark.webp" width="1504" height="620" alt="Warmth at 88, Presence at 70, and Leveling at 80, each with its hardware values" loading="lazy" decoding="async"><img class="t-light" src="assets/shots/tone-light.webp" width="1504" height="620" alt="" loading="lazy" decoding="async"><img class="t-omarchy" src="assets/shots/tone-omarchy.webp" width="1504" height="620" alt="" loading="lazy" decoding="async"></figure>
+      </article>
+
+      <article class="feature wrap">
+        <div class="feature-copy">
+          <h2>A voice test beside the controls</h2>
+          <p>Check levels shows a live waveform with the target band from <span class="num">−18</span> to <span class="num">−6 dBFS</span>. Record a take, change a preset, record again, and play both through the microphone’s headphone output.</p>
+          <p>Each take stores its preset, peak level, and clipped samples. Takes stay on your computer.</p>
+        </div>
+        <figure class="feature-shot themed tall"><img class="t-dark" src="assets/shots/voice-test-dark.webp" width="912" height="1470" alt="The voice test panel with a live waveform, input gain, and three takes" loading="lazy" decoding="async"><img class="t-light" src="assets/shots/voice-test-light.webp" width="912" height="1470" alt="" loading="lazy" decoding="async"><img class="t-omarchy" src="assets/shots/voice-test-omarchy.webp" width="912" height="1470" alt="" loading="lazy" decoding="async"></figure>
+      </article>
+
+      <article class="feature wrap flip">
+        <div class="feature-copy">
+          <h2>Every control in Advanced</h2>
+          <p>Set the compressor against a live transfer curve, tune the APHEX effects, adjust the noise gate and headphones, and save your own presets.</p>
+        </div>
+        <figure class="feature-shot themed tall"><img class="t-dark" src="assets/shots/advanced-dark.webp" width="946" height="1376" alt="The Advanced panel with input controls and the compressor transfer curve" loading="lazy" decoding="async"><img class="t-light" src="assets/shots/advanced-light.webp" width="946" height="1376" alt="" loading="lazy" decoding="async"><img class="t-omarchy" src="assets/shots/advanced-omarchy.webp" width="946" height="1376" alt="" loading="lazy" decoding="async"></figure>
+      </article>
+
+      <article class="feature wrap" id="guide">
+        <div class="feature-copy">
+          <h2>A guide next to every control</h2>
+          <p>Point at an info icon for a one-line summary. Select it to open the guide at that topic. The guide explains what each control does to your voice.</p>
+        </div>
+        <figure class="feature-shot themed"><picture class="t-dark"><source media="(max-width: 560px)" srcset="assets/shots/guide-dark-mobile.webp" width="924" height="688"><img src="assets/shots/guide-dark.webp" width="1380" height="1005" alt="The guide open at the compressor topic" loading="lazy" decoding="async"></picture><picture class="t-light"><source media="(max-width: 560px)" srcset="assets/shots/guide-light-mobile.webp" width="924" height="688"><img src="assets/shots/guide-light.webp" width="1380" height="1005" alt="" loading="lazy" decoding="async"></picture><picture class="t-omarchy"><source media="(max-width: 560px)" srcset="assets/shots/guide-omarchy-mobile.webp" width="924" height="688"><img src="assets/shots/guide-omarchy.webp" width="1380" height="1005" alt="" loading="lazy" decoding="async"></picture></figure>
+      </article>
+      <p class="wrap note">Screenshots show Podtune with sample data.</p>
+    </section>
+
+    <section class="verified" aria-labelledby="verified-title">
+      <div class="wrap verified-grid">
+        <div>
+          <h2 id="verified-title">Every write is read back</h2>
+          <p>Podtune sends each change over HID or ALSA, then reads the value back from the microphone. If the values differ, the app shows an error instead of a guess.</p>
+          <p class="quiet">Verified on firmware <span class="num">1.19</span>. Other firmware versions keep the gain and playback controls.</p>
+        </div>
+        <table>
+          <caption class="sr-only">Hardware controls and their ranges</caption>
+          <thead><tr><th scope="col">Control</th><th scope="col">Range</th></tr></thead>
+          <tbody>
+            <tr><td>Input gain</td><td class="num">22 to 63 dB</td></tr>
+            <tr><td>High-pass filter</td><td>Off or <span class="num">60 Hz</span></td></tr>
+            <tr><td>Compressor</td><td>Threshold, ratio, attack, release, makeup gain</td></tr>
+            <tr><td>APHEX Big Bottom</td><td>On or off, drive</td></tr>
+            <tr><td>APHEX Aural Exciter</td><td>On or off, mix, tune frequency</td></tr>
+            <tr><td>Noise gate</td><td>Threshold, attack, release</td></tr>
+            <tr><td>Input mute</td><td>Off or on</td></tr>
+            <tr><td>Direct monitor</td><td>Off or on</td></tr>
+            <tr><td>Computer playback</td><td class="num">−60 to 0 dB</td></tr>
+            <tr><td>Monitor mix</td><td class="num">0 to 255</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="install" id="install" aria-labelledby="install-title">
+      <div class="wrap install-inner">
+        <h2 id="install-title">Install on Arch or Omarchy</h2>
+        <ol class="steps">
+          <li>
+            <p>Clone the repository.</p>
+            <div class="code"><pre><code>git clone https://github.com/bjarneo/podtune.git &amp;&amp; cd podtune</code></pre><button class="copy" type="button">Copy</button></div>
+          </li>
+          <li>
+            <p>Build and install the package. The command asks for your sudo password and adds the udev rule for the microphone.</p>
+            <div class="code"><pre><code>bin/install</code></pre><button class="copy" type="button">Copy</button></div>
+          </li>
+          <li>
+            <p>Open Podtune from the app launcher.</p>
+          </li>
+        </ol>
+        <p class="quiet">To run it without the package, use <code class="inline">bin/build</code>, then <code class="inline">build/podtune</code>. Podtune needs Qt 6, alsa-lib, and PipeWire.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap foot-inner">
+      <a class="brand" href="#top" aria-label="Back to top">
+        <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect class="m-fill" x="7" y="23" width="6" height="18" rx="3"/><rect class="m-fill" x="18" y="23" width="6" height="18" rx="3"/><rect class="m-fill" x="29" y="23" width="6" height="18" rx="3"/><rect class="m-point" x="40" y="11" width="6" height="42" rx="3"/><rect class="m-rest" x="51" y="28" width="6" height="8" rx="3"/></svg>
+        <span>Podtune</span>
+      </a>
+      <p>MIT license. Protocol tables from <a href="https://github.com/borsuk85/RodePodMicUSB-linux">RodePodMicUSB-linux</a>. Geist fonts under the SIL Open Font License. Podtune is not affiliated with RØDE.</p>
+      <a class="foot-link" href="https://github.com/bjarneo/podtune">Source on GitHub</a>
+    </div>
+  </footer>
+
+  <script src="site.js"></script>
+</body>
+</html>

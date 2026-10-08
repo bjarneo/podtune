@@ -22,6 +22,7 @@
     <file alias="VoiceSection.qml">VoiceSection.qml</file>
     <file alias="Guide.js">Guide.js</file>
     <file alias="InfoTip.qml">InfoTip.qml</file>
+    <file alias="Logo.qml">Logo.qml</file>
     <file alias="GuidePage.qml">GuidePage.qml</file>
     <file alias="AdvancedDrawer.qml">AdvancedDrawer.qml</file>
     <file alias="HelpDialog.qml">HelpDialog.qml</file>

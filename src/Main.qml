@@ -157,15 +157,11 @@ ApplicationWindow {
             width: win.frameWidth
             height: 63
 
-            Image {
+            Logo {
                 x: 24
                 y: 17.5
                 width: 28
                 height: 28
-                source: "qrc:/podtune.svg"
-                sourceSize: Qt.size(56, 56)
-                smooth: true
-                mipmap: true
             }
             Row {
                 x: 66

@@ -1,7 +1,19 @@
-# Podtune
+<h1 align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark.png">
+    <img src="docs/assets/logo-light.png" alt="Podtune" width="302">
+  </picture>
+</h1>
+
+<p align="center">
+  <a href="https://bjarneo.github.io/podtune/">Website</a> ·
+  <a href="docs/assets/podtune-demo.mp4">Demo video</a>
+</p>
 
 Podtune controls the RØDE PodMic USB from a native C++ and Qt 6 app.
 It includes onboard sound controls, voice presets, and local record and playback tests.
+
+![Podtune with the Warm podcast preset active and a live level check](docs/assets/shots/main-dark.webp)
 
 ## Start the app
 
