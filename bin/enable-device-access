@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+ROOT="$(dirname "$(dirname "$(realpath "$0")")")"
+sudo install -Dm644 "$ROOT/pkgbuild/70-podtune.rules" /etc/udev/rules.d/70-podtune.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger --subsystem-match=hidraw --action=add
+udevadm settle

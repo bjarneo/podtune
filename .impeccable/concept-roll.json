@@ -1,0 +1,12 @@
+{
+  "key": "0ec4efde",
+  "scope": "direction",
+  "mode": "operate",
+  "source": "api",
+  "approvedPool": "c3b204a1eed6",
+  "assignedIndex": 7,
+  "selectedKind": "assigned",
+  "selectedDirection": "waveform-centered test bench",
+  "userApproval": "Use the test bench",
+  "choiceRecorded": true
+}

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rode-podmic-usb"
+version = "0.7.0"
+description = "Konfiguracja DSP mikrofonu RØDE PodMic USB pod Linux"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+# Optional: nicer flat dark theme for the GUI. The GUI works without it
+# (falls back to plain ttk), so the base install stays dependency-free.
+gui = ["ttkbootstrap>=1.10"]
+
+[project.scripts]
+rode-podmic = "rode_podmic.cli:main"
+
+[tool.setuptools]
+packages = ["rode_podmic"]
+
+[tool.setuptools.package-data]
+rode_podmic = ["dsp_luts.json"]

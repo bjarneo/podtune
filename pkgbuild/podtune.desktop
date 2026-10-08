@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Podtune
+Comment=Tune the RODE PodMic USB and test your voice
+Exec=podtune
+Icon=podtune
+Terminal=false
+Categories=AudioVideo;Audio;Mixer;
+StartupWMClass=podtune

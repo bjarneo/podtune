@@ -1,0 +1,408 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-07T19:20:00Z",
+  "title": "Design System: Podtune",
+  "extensions": {
+    "colorMeta": {
+      "dark-background": { "role": "neutral", "displayName": "Dark window" },
+      "dark-surface": { "role": "neutral", "displayName": "Dark tonal surface" },
+      "dark-foreground": { "role": "neutral", "displayName": "Dark main text" },
+      "dark-secondary": { "role": "neutral", "displayName": "Dark supporting text" },
+      "dark-border": { "role": "neutral", "displayName": "Dark divider" },
+      "dark-accent": { "role": "primary", "displayName": "Muted gold" },
+      "light-background": { "role": "neutral", "displayName": "Light window" },
+      "light-surface": { "role": "neutral", "displayName": "Light tonal surface" },
+      "light-foreground": { "role": "neutral", "displayName": "Light main text" },
+      "light-secondary": { "role": "neutral", "displayName": "Light supporting text" },
+      "light-border": { "role": "neutral", "displayName": "Light divider" },
+      "light-accent": { "role": "primary", "displayName": "Dark gold" },
+      "omarchy-observed-background": { "role": "neutral", "displayName": "Observed Omarchy window" },
+      "omarchy-observed-surface": { "role": "neutral", "displayName": "Observed Omarchy tonal surface" },
+      "omarchy-observed-foreground": { "role": "neutral", "displayName": "Observed Omarchy main text" },
+      "omarchy-observed-secondary": { "role": "neutral", "displayName": "Observed Omarchy supporting text" },
+      "omarchy-observed-border": { "role": "neutral", "displayName": "Observed Omarchy divider" },
+      "omarchy-observed-accent": { "role": "primary", "displayName": "Observed Omarchy green" },
+      "accent-ink-dark": { "role": "neutral", "displayName": "Dark accent ink" },
+      "accent-ink-light": { "role": "neutral", "displayName": "Light accent ink" },
+      "signal-high-dark": { "role": "signal", "displayName": "Dark high-signal warning" },
+      "signal-high-light": { "role": "signal", "displayName": "Light high-signal warning" },
+      "error-border-dark": { "role": "error", "displayName": "Dark error outline" },
+      "error-border-light": { "role": "error", "displayName": "Light error outline" },
+      "icon-background": { "role": "neutral", "displayName": "Fixed icon background" },
+      "transparent": { "role": "neutral", "displayName": "Transparent preset fill" }
+    },
+    "typographyMeta": {
+      "title-window": { "displayName": "Window title", "purpose": "The Podtune title." },
+      "title-section": { "displayName": "Section title", "purpose": "Column titles and hardware group headings." },
+      "value-peak": { "displayName": "Peak readout", "purpose": "The live peak value." },
+      "body": { "displayName": "Body", "purpose": "The window default, native buttons, preset field, and help text." },
+      "label-strong": { "displayName": "Strong label", "purpose": "Preset names and the record button." },
+      "label-control": { "displayName": "Control label", "purpose": "Identity, control labels, switches, guidance, errors, and take names." },
+      "label-secondary": { "displayName": "Supporting label", "purpose": "Values, descriptions, peak labels, RMS text, and footer text." },
+      "hint": { "displayName": "Wrapped hint", "purpose": "Supporting guidance with proportional line height." },
+      "label-scale": { "displayName": "Meter tick", "purpose": "Level meter tick labels." }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      { "name": "compact-waveform", "value": "820px", "condition": "window.height < 820", "purpose": "Use the compact waveform panel height." }
+    ],
+    "nativeQt": {
+      "platform": "Native Linux desktop",
+      "interface": "Qt Quick Controls Material",
+      "coordinateUnits": "QML coordinate units and font pixel sizes",
+      "componentFormat": "Native component metadata with source references",
+      "browserPreviews": false,
+      "tokenAuthority": "DESIGN.md frontmatter",
+      "tonalRamps": "The source defines no tonal ramps. This record adds none.",
+      "authoredVisualMotion": "The source defines no custom visual animations.",
+      "sources": {
+        "product": "PRODUCT.md",
+        "direction": ".impeccable/surfaces/main.md",
+        "window": "src/Main.qml",
+        "numericControl": "src/ValueControl.qml",
+        "toggleControl": "src/ToggleControl.qml",
+        "themeInterface": "src/theme.h",
+        "themeImplementation": "src/theme.cpp",
+        "audioStates": "src/audio.cpp",
+        "audioProperties": "src/audio.h",
+        "hardwareQueue": "src/backend.cpp",
+        "hardwareSupport": "src/protocol.cpp",
+        "applicationStyle": "src/main.cpp",
+        "resources": "src/resources.qrc",
+        "tests": "tests/podtune_tests.cpp"
+      },
+      "paletteModes": {
+        "dark": {
+          "background": "{colors.dark-background}",
+          "surface": "{colors.dark-surface}",
+          "foreground": "{colors.dark-foreground}",
+          "secondary": "{colors.dark-secondary}",
+          "border": "{colors.dark-border}",
+          "accent": "{colors.dark-accent}",
+          "accentForeground": "{colors.accent-ink-dark}"
+        },
+        "light": {
+          "background": "{colors.light-background}",
+          "surface": "{colors.light-surface}",
+          "foreground": "{colors.light-foreground}",
+          "secondary": "{colors.light-secondary}",
+          "border": "{colors.light-border}",
+          "accent": "{colors.light-accent}",
+          "accentForeground": "{colors.accent-ink-light}"
+        },
+        "omarchy": {
+          "background": "Import background from the current theme file.",
+          "foreground": "Import foreground from the current theme file.",
+          "accent": "Import accent from the current theme file.",
+          "surface": "Use the shared Qt surface algorithm.",
+          "secondary": "Use the shared RGB mixture.",
+          "border": "Use the shared RGB mixture.",
+          "accentForeground": "Use the shared accent luminance algorithm.",
+          "observation": {
+            "background": "{colors.omarchy-observed-background}",
+            "surface": "{colors.omarchy-observed-surface}",
+            "foreground": "{colors.omarchy-observed-foreground}",
+            "secondary": "{colors.omarchy-observed-secondary}",
+            "border": "{colors.omarchy-observed-border}",
+            "accent": "{colors.omarchy-observed-accent}",
+            "accentForeground": "{colors.accent-ink-dark}",
+            "scope": "The inspected theme and review image, not permanent Omarchy colors."
+          }
+        }
+      },
+      "themeAlgorithms": {
+        "surface": { "operation": "QColor(background()).lighter(factor).name()", "darkFactor": 124, "lightFactor": 103 },
+        "secondary": { "operation": "QColor::fromRgbF(...).name()", "foregroundWeight": 0.74, "backgroundWeight": 0.26 },
+        "border": { "operation": "QColor::fromRgbF(...).name()", "foregroundWeight": 0.18, "backgroundWeight": 0.82 },
+        "accentForeground": {
+          "channelRange": "0 through 1",
+          "linearLowCondition": "c <= 0.04045",
+          "linearLow": "c / 12.92",
+          "linearHigh": "pow((c + 0.055) / 1.055, 2.4)",
+          "luminance": "0.2126 * R + 0.7152 * G + 0.0722 * B",
+          "threshold": 0.179,
+          "aboveThreshold": "{colors.accent-ink-dark}",
+          "atOrBelowThreshold": "{colors.accent-ink-light}"
+        },
+        "omarchyImport": {
+          "path": "~/.local/state/omarchy/current/theme/colors.toml",
+          "keys": ["background", "foreground", "accent"],
+          "acceptedValues": "Quoted six-digit hex values",
+          "darkCondition": "QColor(background).lightnessF() < 0.5",
+          "ignoredModeField": true,
+          "initialAndMissingKeyFallbacks": {
+            "background": "{colors.dark-background}",
+            "foreground": "{colors.dark-foreground}",
+            "accent": "{colors.dark-accent}"
+          },
+          "unreadableFile": "Retain the previous imported colors.",
+          "watchScope": "The current theme file, theme directory, current path, and available parent directories.",
+          "reloadDebounceMs": 80
+        },
+        "modePreference": { "storage": "QSettings", "key": "theme", "default": "dark", "values": ["dark", "light", "omarchy"] }
+      },
+      "layout": {
+        "window": { "initialWidth": 1280, "initialHeight": 860, "minimumWidth": 1040, "minimumHeight": 720 },
+        "outer": { "margin": "{spacing.window-inset}", "spacing": "{spacing.waveform-inset}" },
+        "mainRow": { "spacing": "{spacing.window-inset}", "verticalRuleWidth": 1, "stackedVariant": false },
+        "presets": { "preferredWidth": 196, "maximumWidth": 210, "spacing": "{spacing.inset}", "listSpacing": "{spacing.preset-gap}" },
+        "controls": {
+          "minimumWidth": 300,
+          "preferredWidth": 410,
+          "fillWidth": true,
+          "columnSpacing": "{spacing.compact}",
+          "scrollContentWidth": "availableWidth - 14",
+          "scrollContentSpacing": "{spacing.group-gap}",
+          "pairedControlSpacing": "{spacing.paired-controls}"
+        },
+        "voiceTest": { "minimumWidth": 290, "preferredWidth": 350, "spacing": "{spacing.group-gap}", "takeListSpacing": "{spacing.group-gap}" },
+        "header": { "titleSpacing": "{spacing.compact}", "themeSelectorImplicitWidth": 136, "busyIndicatorSize": 24 },
+        "footer": { "preferredHeight": 28, "historyButtonImplicitHeight": 28, "noticeOverflow": "Text.ElideRight" },
+        "dialogs": { "helpWidth": 520, "exitWidth": 400, "modal": true, "position": "Window center" },
+        "scrollAreas": ["Preset list", "Sound and headphone controls", "Take list"],
+        "preferredWidthMeaning": "Qt computes the final widths. Preferred widths are not fixed rendered dimensions."
+      },
+      "componentStates": {
+        "nativeControls": {
+          "styling": "Qt Material supplies inherited shape, hover, focus, pressed, and disabled treatments.",
+          "flatActions": ["Headphones", "Open folder", "Trash", "Undo", "Redo"]
+        },
+        "recordButton": {
+          "backgroundBinding": "theme.accent",
+          "textBinding": "theme.accentForeground",
+          "pressedBackground": "Qt.darker(theme.accent, 1.15)",
+          "focusBorderWidth": 2,
+          "focusBorderColor": "theme.foreground",
+          "idleLabel": "Record test",
+          "activeLabel": "Stop with elapsed whole seconds"
+        },
+        "presetButton": {
+          "restFill": "{colors.transparent}",
+          "hoverAndSelectedFill": "theme.surface",
+          "restBorderColor": "theme.border",
+          "selectedBorderColor": "theme.accent",
+          "restAndSelectedBorderWidth": 1,
+          "focusBorderColor": "theme.accent",
+          "focusBorderWidth": 2,
+          "initialSelection": -1,
+          "selectionMeaning": "The clicked row, not verified hardware success.",
+          "enabledCondition": "!backend.busy",
+          "descriptionSpacing": "{spacing.annotation}"
+        },
+        "numericControl": {
+          "readoutMinimumWidth": 85,
+          "readoutAlignment": "Right",
+          "rowSpacing": "{spacing.flush}",
+          "availableCondition": "backend.supported[controlKey] === true",
+          "unavailableText": "Unavailable",
+          "unavailableLabelColor": "theme.secondary",
+          "enabledDuringBusy": true,
+          "previewPriority": ["Pending request", "In-flight request", "Verified value"],
+          "requestDebounceMs": 160
+        },
+        "toggleControl": {
+          "enabledCondition": "backend.supported[controlKey] === true && !backend.busy",
+          "checkedBinding": "backend.values[controlKey] === true"
+        },
+        "presetName": { "maximumLength": 64, "accessibleName": "New preset name", "placeholderColor": "theme.secondary" },
+        "errorBanner": {
+          "visibleCondition": "backend.error.length > 0 || audio.error.length > 0",
+          "messages": "Nonempty backend and audio errors on separate lines",
+          "height": "Text implicit height + 24",
+          "darkBorder": "{colors.error-border-dark}",
+          "lightBorder": "{colors.error-border-light}"
+        }
+      },
+      "focusAndShortcuts": {
+        "scope": "Qt.ApplicationShortcut",
+        "explicitTabOrder": false,
+        "dialogGuard": "Suspend all shortcuts while the help or exit dialog is open.",
+        "textGuard": "TextInput or TextEdit focus blocks all six shortcuts.",
+        "spaceGuard": "Any Control focus also blocks Space.",
+        "shortcuts": [
+          { "sequence": "?", "action": "Open help" },
+          { "sequence": "Q", "action": "Quit or open the active-task exit dialog" },
+          { "sequence": "Space", "action": "Start or stop a record" },
+          { "sequence": "Ctrl+Z", "action": "Undo a verified hardware change" },
+          { "sequence": "Ctrl+Shift+Z", "action": "Redo a hardware change" },
+          { "sequence": "Ctrl+R", "action": "Refresh hardware state" }
+        ],
+        "accessibleNames": {
+          "themeSelector": "Theme mode",
+          "presetName": "New preset name",
+          "numericControl": "The control label",
+          "numericDescription": "Hardware control in the configured unit",
+          "toggleControl": "The switch label",
+          "presetButton": "The preset name with its description",
+          "playTake": "The current action and voice test name",
+          "trashTake": "Move the named voice test to trash"
+        },
+        "sourceGaps": [
+          "The custom waveform and meter define no explicit accessible role or value.",
+          "The source defines no explicit live announcement for errors or level changes."
+        ]
+      },
+      "measuredSignal": {
+        "source": "Captured input audio",
+        "intervalMs": 50,
+        "maximumHistoryPeaks": 100,
+        "approximateHistorySeconds": 5,
+        "waveform": {
+          "kind": "Symmetric interval-peak bars",
+          "barColor": "theme.accent",
+          "centerRuleColor": "theme.border",
+          "centerRuleWidth": 1,
+          "barHeight": "max(1, sqrt(peak) * (canvasHeight - 8))",
+          "barWidth": "max(1, canvasWidth / 100 - 1)",
+          "partialHistoryAlignment": "Right",
+          "inactivePrompt": "The waveform appears during a level check.",
+          "inactiveHistory": "Retain the last samples behind the inactive prompt.",
+          "newCapture": "Clear waveform history.",
+          "activeSilence": "Use minimum-height bars from measured zero peaks.",
+          "playbackSource": false
+        },
+        "readouts": { "unit": "dBFS", "decimals": 1, "silenceFloor": -90, "inactive": "Show dash placeholders." },
+        "meter": {
+          "fillFraction": "clamp((peakDb + 60) / 60, 0, 1)",
+          "ticksDbfs": [-60, -18, -6, 0],
+          "highCondition": "peakDb > -3",
+          "normalColor": "theme.accent",
+          "highDarkColor": "{colors.signal-high-dark}",
+          "highLightColor": "{colors.signal-high-light}",
+          "highMeaning": "Headroom warning, not a clipped-sample assertion."
+        },
+        "guidance": [
+          { "condition": "!audio.active", "state": "Start a level check" },
+          { "condition": "peakDb > -3", "state": "Too high" },
+          { "condition": "peakDb < -45", "state": "No speech or low signal" },
+          { "condition": "-45 <= peakDb && peakDb < -18", "state": "Low signal" },
+          { "condition": "-18 <= peakDb && peakDb <= -6", "state": "Target range" },
+          { "condition": "-6 < peakDb && peakDb <= -3", "state": "High signal" }
+        ],
+        "clippedSampleCondition": "Finite sample with abs(sample) >= 0.999",
+        "qualityScope": "Signal level only. The listener judges tone, distortion, room noise, and comfort."
+      },
+      "hardwareStates": {
+        "usbDevice": "19f7:004a",
+        "verifiedDspFirmware": "1.19",
+        "availabilitySource": "The result of each hardware control read",
+        "readBack": "Read the current value before a write and read it again after the write.",
+        "unavailableNumeric": "Show Unavailable and disable the slider.",
+        "unavailableToggle": "Disable the switch without asserting an available off state.",
+        "hidFailure": "ALSA gain and computer playback controls can remain available after successful reads.",
+        "unverifiedFirmware": "Expose no DSP map and retain readable standard mixer controls.",
+        "audioWithoutHid": "Qt audio input can support voice tests without HID access.",
+        "missingAudioDevice": "Report the missing PodMic input or headphone output without substituting another device.",
+        "noiseGate": "Expose verified parameters without an independent enable switch.",
+        "headphoneOutputLevel": "Use the physical microphone dial.",
+        "monitorMix": "Display the raw device value. Endpoint direction remains open."
+      },
+      "localVoiceTest": {
+        "recordStart": "Stop playback and start input capture when needed.",
+        "recordStop": "Save the take and leave the level check active.",
+        "takeLimitSeconds": 60,
+        "limitCheck": "The meter timer stops the take when elapsed time reaches the limit.",
+        "requestedCapture": "48 kHz mono float",
+        "unsupportedCaptureRequest": "Use the device's preferred audio format.",
+        "savedFormat": "Mono 16-bit PCM WAV at the actual capture sample rate",
+        "measurementFile": "A JSON file beside each recorded WAV",
+        "directory": "QStandardPaths::GenericDataLocation + /podtune/recordings",
+        "takeName": "ddd HH:mm:ss",
+        "takeOrder": "Newest timestamp filenames first",
+        "rowMeasurements": ["Duration", "Peak dBFS", "Clipped samples"],
+        "missingMetadataLabel": "WAV voice test",
+        "playbackDevice": "PodMic USB headphone output",
+        "activePlaybackAction": "Stop",
+        "disabledDuringRecord": ["Check levels", "Play", "Trash"],
+        "trash": "Move the WAV and available measurement file to the desktop trash.",
+        "openFolder": "Open the local recordings directory.",
+        "comparison": "Record separate takes and compare them manually through playback.",
+        "exitCondition": "audio.recording || backend.busy",
+        "exitAction": "Save the current take and wait for the hardware thread through object cleanup."
+      },
+      "assets": {
+        "shippingRasterCount": 0,
+        "icon": {
+          "path": "pkgbuild/podtune.svg",
+          "kind": "Authored SVG",
+          "resource": "qrc:/podtune.svg",
+          "viewBox": "0 0 64 64",
+          "backgroundColor": "{colors.icon-background}",
+          "strokeColor": "{colors.dark-accent}",
+          "backgroundRadius": 12,
+          "capsuleRadius": 8,
+          "strokeWidth": 3,
+          "strokeCaps": "Round"
+        },
+        "reviewCaptures": [".impeccable/review/dark.png", ".impeccable/review/light.png", ".impeccable/review/omarchy.png"],
+        "reviewCapturesShip": false
+      },
+      "evidence": {
+        "reviewSize": "1280 × 860",
+        "reviewStates": ["Real HID permission failure", "Available input gain", "Unavailable DSP controls", "Inactive voice test"],
+        "paletteCheck": "Source formulas and sampled review-image colors agree.",
+        "omarchyObservationSource": "~/.local/state/omarchy/current/theme/colors.toml",
+        "detector": "The HTML and CSS detector does not apply to native Linux QML.",
+        "contextLoaderDrift": "The context loader misclassifies `Native Linux desktop.` as web. The QML implementation establishes the native platform.",
+        "testSourceCoverage": ["Signal statistics", "WAV headers", "Protocol values", "Optional real-device record and playback"],
+        "freshHardwareTest": false,
+        "freshRuntimeAccessibilityTest": false
+      },
+      "openFacts": [
+        "Power-cycle persistence needs a separate hardware check.",
+        "Monitor mix endpoint direction needs hardware verification.",
+        "The runtime environment resolves the generic font family and inherited Qt control metrics.",
+        "Minimum-size behavior, focus traversal, and screen-reader output need runtime verification beyond the review images."
+      ],
+      "notCanonized": [
+        "The waveform and meter lack explicit accessible roles or values.",
+        "The source defines no explicit live announcement for errors or level changes.",
+        "These source gaps remain documented facts and are not reusable design rules."
+      ]
+    }
+  },
+  "components": [
+    { "name": "Native text button", "kind": "button", "refersTo": "button-native", "description": "Qt Material supplies standard action and state behavior.", "source": "src/Main.qml" },
+    { "name": "Record button", "kind": "button", "refersTo": "button-record", "description": "The primary local voice test action uses live accent ink and a visible focus border.", "source": "src/Main.qml" },
+    { "name": "Preset button", "kind": "button", "refersTo": "button-preset", "description": "An outlined native action presents a preset name, description, selection, and focus state.", "source": "src/Main.qml" },
+    { "name": "Numeric hardware control", "kind": "input", "refersTo": "value-slider", "description": "A native slider pairs a label with an aligned value and genuine unavailable state.", "source": "src/ValueControl.qml" },
+    { "name": "Hardware switch", "kind": "input", "refersTo": "toggle-control", "description": "A native switch follows verified values and disables when unsupported or busy.", "source": "src/ToggleControl.qml" },
+    { "name": "Preset name field", "kind": "input", "refersTo": "preset-name", "description": "A named native text field accepts the local preset title.", "source": "src/Main.qml" },
+    { "name": "Error banner", "kind": "card", "refersTo": "error-banner", "description": "A tonal outlined panel shows genuine hardware and audio errors.", "source": "src/Main.qml" },
+    { "name": "Measured waveform", "kind": "custom", "refersTo": "waveform-panel", "description": "A native Canvas draws measured interval peaks and an inactive-state prompt.", "source": "src/Main.qml" },
+    { "name": "Input level meter", "kind": "custom", "refersTo": "level-meter", "description": "A native bar shows the measured input peak and a separate headroom warning.", "source": "src/Main.qml" }
+  ],
+  "narrative": {
+    "northStar": "Restrained instrument surface",
+    "overview": "Podtune uses a compact native Linux Qt Quick interface for microphone controls and local voice tests.\n`src/main.cpp` selects Qt Quick Controls Material.\nThe approved surface brief establishes one theme accent and a measured waveform beside the hardware controls.\nThe built interface keeps clear labels, aligned values, and separate scroll areas.\n\nThis document records the built choices rather than the requested capability list.\n`PRODUCT.md` supplies the product constraints.\n`.impeccable/surfaces/main.md` supplies the approved visual direction.\nThe QML components and `src/theme.cpp` supply the visual authority.\n`src/audio.cpp`, `src/backend.cpp`, and `src/protocol.cpp` establish the interaction states.",
+    "keyCharacteristics": [
+      "One live theme accent identifies the record action, selected presets, and measured signal.",
+      "Thin rules and tonal fills separate compact control groups.",
+      "Numeric controls pair clear labels with right-aligned values and units.",
+      "Hardware failures remain visible beside independent audio test actions.",
+      "Native controls retain Qt Material behavior unless QML defines a custom treatment."
+    ],
+    "rules": [
+      { "name": "The Live Theme Rule", "body": "Bind custom controls to `theme` roles so Dark, Light, and Omarchy keep the same hierarchy.", "section": "colors" },
+      { "name": "The Verified Availability Rule", "body": "Expose hardware controls only through read-confirmed support and preserve genuine unavailable states.", "section": "components" },
+      { "name": "The Measured Signal Rule", "body": "Derive waveform, levels, guidance, and clipped-sample counts from captured audio rather than invented activity.", "section": "components" }
+    ],
+    "dos": [
+      "Do bind custom fills, text, and borders to the live theme roles.",
+      "Do retain native Qt control behavior and explicit accessible names.",
+      "Do show real support, read-back values, units, and hardware errors.",
+      "Do keep numeric readouts aligned and reserve their minimum width.",
+      "Do derive audio feedback from measured samples and keep voice tests local.",
+      "Do distinguish high signal level from clipped-sample counts and subjective voice quality."
+    ],
+    "donts": [
+      "Don't freeze the observed Omarchy palette into the live theme implementation.",
+      "Don't replace measured audio feedback with invented waveform activity.",
+      "Don't present unavailable controls as verified hardware settings.",
+      "Don't add a noise gate enable switch without a verified protocol operation.",
+      "Don't label monitor mix endpoints as microphone or computer without hardware evidence.",
+      "Don't claim power-cycle persistence, whole-app accessibility, or additional platform support from these source records."
+    ]
+  }
+}

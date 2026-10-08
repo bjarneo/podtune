@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Natural",
+    "description": "Minimal processing for a clean reference.",
+    "factory": true,
+    "values": {"hpf": 1, "compressor": 0, "exciter": 0, "bottom": 0}
+  },
+  {
+    "name": "Warm podcast",
+    "description": "Fuller lows and gentle voice compression.",
+    "factory": true,
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -22, "compRatio": 2.5, "compAttack": 5, "compRelease": 110, "compGain": 2, "exciter": 1, "exciterMix": 12, "exciterTune": 2600, "bottom": 1, "bottomDrive": 20}
+  },
+  {
+    "name": "Clear calls",
+    "description": "More presence and a controlled voice level.",
+    "factory": true,
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -26, "compRatio": 3, "compAttack": 2, "compRelease": 80, "compGain": 2, "exciter": 1, "exciterMix": 22, "exciterTune": 3200, "bottom": 0}
+  },
+  {
+    "name": "Voice-over",
+    "description": "Moderate compression with restrained tone effects.",
+    "factory": true,
+    "values": {"hpf": 1, "compressor": 1, "compThreshold": -20, "compRatio": 2, "compAttack": 7, "compRelease": 150, "compGain": 1, "exciter": 1, "exciterMix": 8, "exciterTune": 2400, "bottom": 1, "bottomDrive": 10}
+  }
+]

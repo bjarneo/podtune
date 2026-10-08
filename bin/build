@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+ROOT="$(dirname "$(dirname "$(realpath "$0")")")"
+mkdir -p "$ROOT/build"
+qmake6 "$ROOT/podtune.pro" -o "$ROOT/build/Makefile"
+make -C "$ROOT/build" -j"$(nproc)"

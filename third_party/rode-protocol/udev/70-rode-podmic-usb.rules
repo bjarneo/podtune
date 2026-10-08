@@ -1,0 +1,5 @@
+# RØDE PodMic USB — non-root access to the HID (DSP) interface.
+# Install:
+#   sudo cp udev/70-rode-podmic-usb.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload-rules && sudo udevadm trigger --subsystem-match=hidraw
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="19f7", ATTRS{idProduct}=="004a", MODE="0660", GROUP="plugdev", TAG+="uaccess"

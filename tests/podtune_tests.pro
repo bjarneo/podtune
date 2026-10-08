@@ -1,0 +1,9 @@
+QT += core gui qml quick quickcontrols2 multimedia testlib
+CONFIG += c++17 testcase link_pkgconfig
+PKGCONFIG += alsa
+TARGET = podtune_tests
+TEMPLATE = app
+INCLUDEPATH += ../src
+HEADERS += ../src/protocol.h ../src/audio.h
+SOURCES += podtune_tests.cpp ../src/protocol.cpp ../src/audio.cpp
+RESOURCES += ../src/resources.qrc

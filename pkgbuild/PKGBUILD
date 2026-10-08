@@ -1,0 +1,25 @@
+pkgname=podtune
+pkgver=0.1.0
+pkgrel=1
+pkgdesc='Tune the RODE PodMic USB and test your voice'
+arch=('x86_64' 'aarch64')
+license=('MIT' 'OFL-1.1')
+depends=('qt6-base' 'qt6-declarative' 'qt6-multimedia' 'qt6-wayland' 'qt6-svg' 'alsa-lib' 'hicolor-icon-theme')
+makedepends=('gcc' 'make' 'pkgconf')
+options=('!debug')
+source=()
+sha256sums=()
+
+build() {
+  "$startdir/../bin/build"
+}
+
+package() {
+  install -Dm755 "$startdir/../build/podtune" "$pkgdir/usr/bin/podtune"
+  install -Dm644 "$startdir/podtune.desktop" "$pkgdir/usr/share/applications/podtune.desktop"
+  install -Dm644 "$startdir/podtune.svg" "$pkgdir/usr/share/icons/hicolor/scalable/apps/podtune.svg"
+  install -Dm644 "$startdir/70-podtune.rules" "$pkgdir/usr/lib/udev/rules.d/70-podtune.rules"
+  install -Dm644 "$startdir/../LICENSE" "$pkgdir/usr/share/licenses/podtune/LICENSE"
+  install -Dm644 "$startdir/../third_party/rode-protocol/LICENSE" "$pkgdir/usr/share/licenses/podtune/protocol-LICENSE"
+  install -Dm644 "$startdir/../third_party/geist/OFL.txt" "$pkgdir/usr/share/licenses/podtune/Geist-OFL.txt"
+}

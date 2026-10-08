@@ -1,0 +1,34 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="Main.qml">Main.qml</file>
+    <file alias="Controls.js">Controls.js</file>
+    <file alias="Txt.qml">Txt.qml</file>
+    <file alias="Kbd.qml">Kbd.qml</file>
+    <file alias="Pill.qml">Pill.qml</file>
+    <file alias="SectionLabel.qml">SectionLabel.qml</file>
+    <file alias="TextButton.qml">TextButton.qml</file>
+    <file alias="PodSwitch.qml">PodSwitch.qml</file>
+    <file alias="TrackSlider.qml">TrackSlider.qml</file>
+    <file alias="ValueControl.qml">ValueControl.qml</file>
+    <file alias="ToggleControl.qml">ToggleControl.qml</file>
+    <file alias="PresetCard.qml">PresetCard.qml</file>
+    <file alias="ToneRow.qml">ToneRow.qml</file>
+    <file alias="Waveform.qml">Waveform.qml</file>
+    <file alias="TakeRow.qml">TakeRow.qml</file>
+    <file alias="CompressorCurve.qml">CompressorCurve.qml</file>
+    <file alias="DrawerSection.qml">DrawerSection.qml</file>
+    <file alias="WheelScroll.qml">WheelScroll.qml</file>
+    <file alias="TuneSection.qml">TuneSection.qml</file>
+    <file alias="VoiceSection.qml">VoiceSection.qml</file>
+    <file alias="AdvancedDrawer.qml">AdvancedDrawer.qml</file>
+    <file alias="HelpDialog.qml">HelpDialog.qml</file>
+    <file alias="presets.json">presets.json</file>
+    <file alias="dsp_luts.json">../third_party/rode-protocol/rode_podmic/dsp_luts.json</file>
+    <file alias="podtune.svg">../pkgbuild/podtune.svg</file>
+    <file alias="fonts/Geist-Regular.ttf">../third_party/geist/Geist-Regular.ttf</file>
+    <file alias="fonts/Geist-Medium.ttf">../third_party/geist/Geist-Medium.ttf</file>
+    <file alias="fonts/Geist-SemiBold.ttf">../third_party/geist/Geist-SemiBold.ttf</file>
+    <file alias="fonts/GeistMono-Regular.ttf">../third_party/geist/GeistMono-Regular.ttf</file>
+    <file alias="fonts/GeistMono-Medium.ttf">../third_party/geist/GeistMono-Medium.ttf</file>
+  </qresource>
+</RCC>

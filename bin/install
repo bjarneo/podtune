@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+ROOT="$(dirname "$(dirname "$(realpath "$0")")")"
+PACKAGER='Podtune contributors <packager@example.invalid>' makepkg -D "$ROOT/pkgbuild" -fsi "$@"
+"$ROOT/bin/enable-device-access"

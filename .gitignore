@@ -1,0 +1,6 @@
+/build/
+/pkgbuild/pkg/
+/pkgbuild/src/
+*.pkg.tar.*
+/third_party/rode-protocol/.git/
+/.impeccable/review/

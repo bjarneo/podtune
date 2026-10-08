@@ -1,0 +1,30 @@
+# Artefakty reverse-engineeringu (duże; odtwarzalne z APK)
+apk/
+tools/
+libs/
+*_syms.txt
+funcs_raw.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# Lokalne ustawienia Claude Code (+ pliki tymczasowe harnessa)
+.claude/settings.local.json*
+.claude/*.tmp*
+
+# IDE
+.idea/
+*.iml
+
+# Stray screenshots dropped in the repo root
+/Screenshot_*.png
+
+# System
+.DS_Store
