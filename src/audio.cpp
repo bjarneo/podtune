@@ -98,7 +98,9 @@ bool Audio::startMeter() {
     m_format.setSampleRate(48000); m_format.setChannelCount(1); m_format.setSampleFormat(QAudioFormat::Float);
     if (!selected.isFormatSupported(m_format)) m_format = selected.preferredFormat();
     m_source = std::make_unique<QAudioSource>(selected, m_format);
-    m_source->setBufferSize(m_format.bytesForDuration(20000));
+    // PipeWire delivers 1024-frame blocks. A buffer shorter than one block drops audio on each cycle.
+    // 200 ms also absorbs interface stalls. Data still arrives every block, so the meter stays smooth.
+    m_source->setBufferSize(m_format.bytesForDuration(200000));
     connect(m_source.get(), &QAudioSource::stateChanged, this, [this](QAudio::State state) {
         if (state == QAudio::StoppedState && m_source && m_source->error() != QAudio::NoError) {
             m_error = "The microphone audio stream stopped. Stop the level check, then start it again.";
@@ -191,6 +193,8 @@ void Audio::toggleRecord() {
 }
 
 void Audio::stopRecord() {
+    if (!recording()) return;
+    consume();
     if (!recording()) return;
     if (!m_file->seek(0) || m_file->write(wavHeader(quint32(m_written), m_format.sampleRate())) != 44 || !m_file->commit()) {
         m_error = "Cannot finish the voice test: " + m_file->errorString(); m_file.reset(); emit changed(); return;
